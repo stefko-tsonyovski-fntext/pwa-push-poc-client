@@ -35,7 +35,7 @@ function App() {
       setLoadingSubscribe(true);
       try {
         const subscription = await getSubscription();
-        await axios.post("https://pwa-push-poc-server.onrender.com/subscribe", {
+        await axios.post("https://pwa-push-poc-server.vercel.app/subscribe", {
           subscription: subscription,
           id: subscribeId,
         });
@@ -55,7 +55,7 @@ function App() {
       e.preventDefault();
       setLoadingPush(true);
       try {
-        await axios.post("https://pwa-push-poc-server.onrender.com/send", {
+        await axios.post("https://pwa-push-poc-server.vercel.app/send", {
           message,
           title,
           id: pushId,
