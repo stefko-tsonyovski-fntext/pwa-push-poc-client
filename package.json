@@ -21,7 +21,11 @@
     "workbox-range-requests": "^6.6.0",
     "workbox-routing": "^6.6.0",
     "workbox-strategies": "^6.6.0",
-    "workbox-streams": "^6.6.0"
+    "workbox-streams": "^6.6.0",
+    "react-pwa-push-notifications": "1.0.0",
+    "@fingerprintjs/fingerprintjs": "^4.1.0",
+    "axios": "^1.5.0",
+    "react-hot-toast": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
