@@ -43,8 +43,18 @@ function App() {
         });
         toast.success("Subscribe success");
       } catch (e) {
-        console.warn(e);
-        toast.error("Details console");
+        if (e.errorCode === "ExistingSubscription") {
+          const registration = await navigator.serviceWorker.ready;
+
+          const existingSubscription =
+            await registration?.pushManager?.getSubscription();
+
+          console.warn(e, existingSubscription);
+          toast.error("Details console");
+        } else {
+          console.warn(e);
+          toast.error("Details console");
+        }
       } finally {
         setLoadingSubscribe(false);
       }
