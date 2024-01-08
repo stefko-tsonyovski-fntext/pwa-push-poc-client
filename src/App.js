@@ -11,7 +11,7 @@ import TextInput from "./components/Input/TextInput";
 const PUBLIC_KEY =
   "BDZJSiMXSJUhryPkjFh_H84ZeEjVNfq5STCXVDEW4bpXye1mybGCjufRFIVmMxJN1wHOGUunGyBra0qvSa0fGJ8";
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://pwa-push-poc-server.vercel.app";
 
 function App() {
   const [loadingSubscribe, setLoadingSubscribe] = useState(false);
