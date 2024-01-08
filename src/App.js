@@ -61,12 +61,12 @@ function App() {
           const registration = await navigator.serviceWorker.ready;
           const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
-          const existingSubscription = await registration.pushManager.subscribe(
-            {
+          const existingSubscription = await registration.pushManager
+            .subscribe({
               applicationServerKey: convertedVapidKey,
               userVisibleOnly: true,
-            }
-          );
+            })
+            .toJSON();
 
           console.warn(e, existingSubscription);
           toast.error("Details console");
