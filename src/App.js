@@ -13,6 +13,20 @@ const PUBLIC_KEY =
 
 const BACKEND_URL = "https://pwa-push-poc-server.vercel.app";
 
+const urlBase64ToUint8Array = (base64String) => {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+
+  return outputArray;
+};
+
 function App() {
   const [loadingSubscribe, setLoadingSubscribe] = useState(false);
   const [loadingPush, setLoadingPush] = useState(false);
@@ -45,9 +59,14 @@ function App() {
       } catch (e) {
         if (e.errorCode === "ExistingSubscription") {
           const registration = await navigator.serviceWorker.ready;
+          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
-          const existingSubscription =
-            await registration?.pushManager?.getSubscription();
+          const existingSubscription = await registration.pushManager.subscribe(
+            {
+              applicationServerKey: convertedVapidKey,
+              userVisibleOnly: true,
+            }
+          );
 
           console.warn(e, existingSubscription);
           toast.error("Details console");
