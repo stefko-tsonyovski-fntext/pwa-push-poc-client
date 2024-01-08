@@ -11,6 +11,8 @@ import TextInput from "./components/Input/TextInput";
 const PUBLIC_KEY =
   "BDZJSiMXSJUhryPkjFh_H84ZeEjVNfq5STCXVDEW4bpXye1mybGCjufRFIVmMxJN1wHOGUunGyBra0qvSa0fGJ8";
 
+const BACKEND_URL = "http://localhost:3000";
+
 function App() {
   const [loadingSubscribe, setLoadingSubscribe] = useState(false);
   const [loadingPush, setLoadingPush] = useState(false);
@@ -35,7 +37,7 @@ function App() {
       setLoadingSubscribe(true);
       try {
         const subscription = await getSubscription();
-        await axios.post("https://pwa-push-poc-server.vercel.app/subscribe", {
+        await axios.post(BACKEND_URL + "/subscribe", {
           subscription: subscription,
           id: subscribeId,
         });
@@ -55,7 +57,7 @@ function App() {
       e.preventDefault();
       setLoadingPush(true);
       try {
-        await axios.post("https://pwa-push-poc-server.vercel.app/send", {
+        await axios.post(BACKEND_URL + "/send", {
           message,
           title,
           id: pushId,
