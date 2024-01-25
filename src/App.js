@@ -51,6 +51,7 @@ function App() {
       setLoadingSubscribe(true);
       try {
         const subscription = await getSubscription();
+        console.log(subscription);
         await axios.post(BACKEND_URL + "/subscribe", {
           subscription: subscription,
           id: subscribeId,
