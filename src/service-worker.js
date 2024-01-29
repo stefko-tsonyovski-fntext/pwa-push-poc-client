@@ -73,7 +73,7 @@ self.addEventListener("message", (event) => {
 // Any other custom service worker logic can go here.
 self.addEventListener("push", function (event) {
   const message = event.data;
-
+  console.log(message);
   const options = {
     body: message,
     icon: "favicon.ico",
