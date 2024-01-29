@@ -98,6 +98,8 @@ function App() {
       try {
         await axios.post(BACKEND_URL + "/notifications/send", {
           userId: pushId,
+          title,
+          message,
         });
 
         toast.success("Push success");
