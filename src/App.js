@@ -53,7 +53,7 @@ function App() {
         const subscription = await getSubscription();
         console.log(subscription.toJSON());
 
-        await axios.post(BACKEND_URL + "/subscribe", {
+        await axios.post(BACKEND_URL + "/notifications/subscribe", {
           userId: subscribeId,
           endpoint: subscription.endpoint,
           p256dh: subscription.getKey("p256dh"),
@@ -96,7 +96,7 @@ function App() {
       e.preventDefault();
       setLoadingPush(true);
       try {
-        await axios.post(BACKEND_URL + "/send", {
+        await axios.post(BACKEND_URL + "/notifications/send", {
           userId: subscribeId,
         });
 
