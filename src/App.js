@@ -97,7 +97,7 @@ function App() {
       setLoadingPush(true);
       try {
         await axios.post(BACKEND_URL + "/notifications/send", {
-          userId: subscribeId,
+          userId: pushId,
         });
 
         toast.success("Push success");
