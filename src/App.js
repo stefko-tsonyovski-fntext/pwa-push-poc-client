@@ -56,8 +56,8 @@ function App() {
         await axios.post(BACKEND_URL + "/notifications/subscribe", {
           userId: subscribeId,
           endpoint: subscription.endpoint,
-          p256dh: subscription.getKey("p256dh"),
-          auth: subscription.getKey("auth"),
+          p256dh: subscription.toJSON().keys.p256dh,
+          auth: subscription.toJSON().keys.auth,
         });
 
         toast.success("Subscribe success");
