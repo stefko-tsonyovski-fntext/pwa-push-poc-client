@@ -11,7 +11,7 @@ import TextInput from "./components/Input/TextInput";
 const PUBLIC_KEY =
   "BDZJSiMXSJUhryPkjFh_H84ZeEjVNfq5STCXVDEW4bpXye1mybGCjufRFIVmMxJN1wHOGUunGyBra0qvSa0fGJ8";
 
-const BACKEND_URL = "https://pwa-push-poc-server.vercel.app";
+const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -51,10 +51,15 @@ function App() {
       setLoadingSubscribe(true);
       try {
         const subscription = await getSubscription();
+        console.log(subscription.toJSON());
+
         await axios.post(BACKEND_URL + "/subscribe", {
-          subscription: subscription,
-          id: subscribeId,
+          userId: subscribeId,
+          endpoint: subscription.endpoint,
+          p256dh: subscription.getKey("p256dh"),
+          auth: subscription.getKey("auth"),
         });
+
         toast.success("Subscribe success");
       } catch (e) {
         if (e.errorCode === "ExistingSubscription") {
@@ -68,11 +73,12 @@ function App() {
             }
           );
 
-          console.warn(
+          console.log(
             e,
             existingSubscription.toJSON(),
             existingSubscription.subscriptionId
           );
+
           toast.error("Details console");
         } else {
           console.warn(e);
@@ -91,10 +97,9 @@ function App() {
       setLoadingPush(true);
       try {
         await axios.post(BACKEND_URL + "/send", {
-          message,
-          title,
-          id: pushId,
+          userId: subscribeId,
         });
+
         toast.success("Push success");
       } catch (e) {
         toast.error("Details console");
