@@ -133,7 +133,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title"> Use as PWA</div>
+            <div className="title"> Use as PWAAA</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
