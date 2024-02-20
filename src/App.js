@@ -35,6 +35,7 @@ function App() {
   const [title, setTitle] = useState("Hello");
   const [subscribeId, setSubscribeId] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(true);
+  const [error, setError] = useState("")
 
   const onShowSubscribe = () => {
     setShowSubscribe(true);
@@ -62,6 +63,7 @@ function App() {
 
         toast.success("Subscribe success");
       } catch (e) {
+        setError(e)
         if (e.errorCode === "ExistingSubscription") {
           const registration = await navigator.serviceWorker.ready;
           const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
@@ -134,6 +136,7 @@ function App() {
         <div>
           <div className="message">
             <div className="title"> Use as PWAAA</div>
+  {error && <div>{error}</div>}
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
