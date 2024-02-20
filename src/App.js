@@ -136,7 +136,7 @@ function App() {
         <div>
           <div className="message">
             <div className="title"> Use as PWAAA</div>
-  {error && <div>{error}</div>}
+  {error}
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
