@@ -36,7 +36,9 @@ function App() {
   const [subscribeId, setSubscribeId] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(true);
   const [error, setError] = useState("");
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState(
+    "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjIzMDEsImlhdCI6MTcwODUyMjAwMSwianRpIjoiZmU0YWE3ZWUtMDAyYi00YzYwLThmMTAtZTg4MGI0MDNkMTU3IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJmMWMyOWI3Zi02YmI1LTRhMDQtYTI3MC0wODZhZDJmZTkzODciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImYxYzI5YjdmLTZiYjUtNGEwNC1hMjcwLTA4NmFkMmZlOTM4NyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.aG8jNfTeGxY64VQUXZkaPKgqcLpsSYesFN4-mEGzwIUrVfM5AlSLtr9fXSr0lf7IvO0l0XbqRNTJRCmh6uI494WPIRTSIuoichyXCDezxtYKhvmsZh3oXq2M-lG0prd3ddjeQCcnYZtUtHwb2VGp1ombdoljVLw5DxNn37uOYZqbYe9nT9XfjxfIAv872s9KoJu4o7a3cI-CoWmLkZTXoM5bXXcjq0IXs3608IiHRN1qsltwyYoC43XEp6fb9sUyGeqbZ_HIwscmxnORbuNqlGIKvmWTzEKBsi46MoVyd5s5yVpAaMllwCTEuizStuu0qBqroumD15G9ziWG2Sc8dg"
+  );
 
   const onShowSubscribe = () => {
     setShowSubscribe(true);
@@ -204,13 +206,6 @@ function App() {
         {showSubscribe && (
           <div className="send">
             <form onSubmit={onSubmitSubscribe}>
-              <div className="title">Access token</div>
-              <TextInput
-                id="fingerprint"
-                placeholder="Access token"
-                value={accessToken}
-                onChange={onChange(setAccessToken)}
-              />
               <button
                 className={loadingSubscribe ? "loading" : ""}
                 type="submit"
