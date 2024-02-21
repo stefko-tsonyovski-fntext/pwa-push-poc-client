@@ -68,7 +68,7 @@ function registerValidSW(swUrl, config) {
     .register(swUrl)
     .then(async (registration) => {
       try {
-        toast.success("Initialize...");
+        toast.success("Service worker initialize...");
 
         const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
