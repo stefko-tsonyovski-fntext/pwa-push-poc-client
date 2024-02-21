@@ -37,7 +37,7 @@ function App() {
   const [showSubscribe, setShowSubscribe] = useState(true);
   const [error, setError] = useState("");
   const [accessToken, setAccessToken] = useState(
-    "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjI3NzUsImlhdCI6MTcwODUyMjQ3NSwianRpIjoiYTY1ZjU1N2UtNGQzMS00OGUxLTgzMzEtYTUyNTk3Nzc2YmNjIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIxZjhkMjYyMC1hZDRhLTQ3NGItOTk0Ni05NjlmOTYzYzUxY2MiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjFmOGQyNjIwLWFkNGEtNDc0Yi05OTQ2LTk2OWY5NjNjNTFjYyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.qGjT8VhEkfkJEY9t8sOUy7GQHgvjukLeL3RXG6QLg00vR6KMSOLenT98miJO5qXYLloJi0uXbxNDYG1osOcisdjdbmVY6FmTXyLbHCLzKAWl1MSBzqtPEcw-NHWs3AGjMCnEtZuNG68EB10yqQqPFq66fRgJkIn6FZE9-aCz7O7NbElB98aQHIIulSlaXnXXQZJlVX23pYdhYpDPeMNe0ZtIJlXF0Rl891pVUusM_648Y9tZIwpsnG5D40TOb_KnoGew8610C-VC4dUVgh-vaFmzwckqJ0oEEJzkT7nmfIrY_WwK4aEkpFhDLecvjwRUhQ9DTBM47zUlwvXfSuFDng"
+    "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjM4NDcsImlhdCI6MTcwODUyMzU0NywianRpIjoiNzg4ZWZmN2ItMjZjMC00N2U0LWE3ZmEtZWM4MjkwNzAzNDdmIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJlYjI0ODZkMS1mYzkxLTRlNWMtODRkZC03ZGFiMTM2M2I4Y2UiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImViMjQ4NmQxLWZjOTEtNGU1Yy04NGRkLTdkYWIxMzYzYjhjZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.vmeWwoU8dmo4fNQPgRLjs498Xt6LWGBCRjwCwOhTNitdU0ppMwJ7h8U0s1B5jeGYvF9g6BVPhxWWDjalfPQ9EyTDsj4568El1bIR5pdXNwi5Dzy6FsAmD8eOfDMCIUANFhPpgmC_rKnFRp_6_WOEZTkRe3aZr2GXMahEcUDcGUxx4U2YMxB60lxe2HtHHe_eGtU8t_HuxWtZSTv3yFxZh6IhqfKsV9TwjqP9mlHMOiAVww6ocB2P2kjR2Tyh7kt1h1iTMdw3YnhlQ1WJz0ckEIGv835ajwj8JnbYJpi1YNw5ILY6SyVUueLzXQ9GWORFWDIKvsySXaIEwz_x2WD2UA"
   );
 
   const onShowSubscribe = () => {
@@ -108,7 +108,9 @@ function App() {
     setLoadingSubscribe(true);
 
     try {
+      toast.success("Initialize...");
       const subscription = await getSubscription();
+      toast.success("Endpoint: " + subscription.endpoint);
       console.log(subscription.toJSON());
 
       await axios.post(
@@ -123,8 +125,8 @@ function App() {
 
       toast.success("Subscribe success");
     } catch (e) {
-      setError(e);
       if (e.errorCode === "ExistingSubscription") {
+        toast.error("Existing subscription");
         const registration = await navigator.serviceWorker.ready;
         const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
@@ -132,6 +134,8 @@ function App() {
           applicationServerKey: convertedVapidKey,
           userVisibleOnly: true,
         });
+
+        toast.success("Existing Endpoint: " + existingSubscription.endpoint);
 
         await axios.post(
           BACKEND_URL + "/users/notifications/subscribe",
@@ -143,7 +147,7 @@ function App() {
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
 
-        toast.success("Subscribe success");
+        toast.success("Existing Subscribe success");
 
         console.log(
           e,
@@ -152,7 +156,7 @@ function App() {
         );
       } else {
         console.warn(e);
-        toast.error("Details console");
+        toast.error("Something went wrong");
       }
     } finally {
       setLoadingSubscribe(false);
@@ -207,7 +211,6 @@ function App() {
         <div>
           <div className="message">
             <div className="title"> Use as PWAAA</div>
-            {error?.errorCode}
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
