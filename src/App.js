@@ -8,15 +8,15 @@ import axios from "axios";
 import TextInput from "./components/Input/TextInput";
 
 // in PROD use from .env
-const PUBLIC_KEY =
+export const PUBLIC_KEY =
   "BDZJSiMXSJUhryPkjFh_H84ZeEjVNfq5STCXVDEW4bpXye1mybGCjufRFIVmMxJN1wHOGUunGyBra0qvSa0fGJ8";
 
-const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
+export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjcyMzEsImlhdCI6MTcwODUyNjkzMSwianRpIjoiYzA1NTllYzktNDFhNS00MjFmLTk5NzItOGI3OGI4ZmYyNzNmIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI4NTc1OGJiZi04NjU3LTQ2MjgtOGMyMy0zMDMwOTM1MmI5ZWIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6Ijg1NzU4YmJmLTg2NTctNDYyOC04YzIzLTMwMzA5MzUyYjllYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.Yog1zktH1FDD9RqgMJmsOo2AIjDuX_CcSNG8G5HlsVPdJj0cTs2UCllCUbkDIXVDrbe2BR82BNAECrsrdpU8OGftUgaoA-qu3QalXWFyljTkULiY-FdgdLtnQl8Ae9vTbtff3pj6AsNaSigAPuUS0s0dGxbd4ObSUm6tswitP_elu817qyWlz1xg-Hjk4WpLHOh2LCgnxVCBeMxxduwT1V1zvAKHSDQMjBL6QfhwZeeC-ONwq7Nix4_CYXyPKW3Lx41p0cPBD8CbwBI7PtkION5QHpMbqwywi96mbtEaxt_XqjZQ9kdt2jbo-E0PXcpilmmrqPUcQ_RzlHBXvFICjQ";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1Mjg0MTgsImlhdCI6MTcwODUyODExOCwianRpIjoiMmIzNzA1MzctM2YwYy00ZWIyLTllNjQtNWE1NzIxMmJmZjEwIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJkNjU5NTg1Zi03NTRlLTRkODUtYjc4MC00YzQzNTliNDQ2YzQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImQ2NTk1ODVmLTc1NGUtNGQ4NS1iNzgwLTRjNDM1OWI0NDZjNCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.RvFcI3jXIlcJAkntoqXn4R1aV-iCoMf5EglkminVCxR1AwQcMa_O1MriQED_lyvptbrJzmtkiQJUnMB7bFkBqHzNITiPcbLp0QzFyLfrLJIoNc0BupJ_0beGuB2DEZukaDtqmzOHHm55WzT8RLDARx8xYmXEfsPHzZ2oOhbM1LjEiTBaZR1zvJb631uHmZTEtgRLhkgOimHH3W0p4yGQ4lm5OekrRxg7rNBsgf7SXM1R_uvSonIlbujUXOpmYznqSxkBkNBOcVl_d9s8nZsZDpXRNjyplNiQbE5pxd7eYocgqz-rhAM5YqaY_wv_TeibxnjkneHmYYEK2AeQT2BCEg";
 
-const urlBase64ToUint8Array = (base64String) => {
+export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
 
@@ -195,14 +195,14 @@ function App() {
   );
 
   useEffect(() => {
-    // FingerprintJS.load()
-    //   .then((fp) => fp.get())
-    //   .then((result) => {
-    //     setSubscribeId(result.visitorId);
-    //     setPushId(result.visitorId);
-    //   });
+    FingerprintJS.load()
+      .then((fp) => fp.get())
+      .then((result) => {
+        setSubscribeId(result.visitorId);
+        setPushId(result.visitorId);
+      });
 
-    onSubscribe();
+    // onSubscribe();
   }, [onSubscribe]);
 
   return (

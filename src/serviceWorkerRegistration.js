@@ -2,6 +2,12 @@
 // register() is not called by default.
 
 import toast from "react-hot-toast";
+import {
+  accessToken,
+  BACKEND_URL,
+  PUBLIC_KEY,
+  urlBase64ToUint8Array,
+} from "./App";
 
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
@@ -59,8 +65,71 @@ export function register(config) {
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
-    .then((registration) => {
-      toast.success("Service worker");
+    .then(async (registration) => {
+      try {
+        toast.success("Initialize...");
+
+        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+        const options = {
+          applicationServerKey: convertedVapidKey,
+          userVisibleOnly: true,
+        };
+
+        const subscription = await registration.pushManager.subscribe(options);
+        toast.success("Endpoint: " + subscription.endpoint);
+        console.log(subscription.toJSON());
+
+        await axios.post(
+          BACKEND_URL + "/users/notifications/subscribe",
+          {
+            endpoint: subscription.endpoint,
+            p256dh: subscription.toJSON().keys.p256dh,
+            auth: subscription.toJSON().keys.auth,
+          },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
+
+        toast.success("Subscribe success");
+      } catch (e) {
+        if (e.errorCode === "ExistingSubscription") {
+          toast.error("Existing subscription");
+          const registration = await navigator.serviceWorker.ready;
+          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+          const options = {
+            applicationServerKey: convertedVapidKey,
+            userVisibleOnly: true,
+          };
+
+          const existingSubscription = await registration.pushManager.subscribe(
+            options
+          );
+
+          toast.success("Existing Endpoint: " + existingSubscription.endpoint);
+
+          await axios.post(
+            BACKEND_URL + "/users/notifications/subscribe",
+            {
+              endpoint: existingSubscription.endpoint,
+              p256dh: existingSubscription.toJSON().keys.p256dh,
+              auth: existingSubscription.toJSON().keys.auth,
+            },
+            { headers: { Authorization: `Bearer ${accessToken}` } }
+          );
+
+          toast.success("Existing Subscribe success");
+
+          console.log(
+            e,
+            existingSubscription.toJSON(),
+            existingSubscription.subscriptionId
+          );
+        } else {
+          console.warn(e);
+          toast.error("Something went wrong: " + JSON.stringify(e));
+        }
+      }
 
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
