@@ -66,72 +66,7 @@ export function register(config) {
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
-    .then(async (registration) => {
-      // try {
-      //   toast.success("Service worker initialize...");
-
-      //   const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-      //   const options = {
-      //     applicationServerKey: convertedVapidKey,
-      //     userVisibleOnly: true,
-      //   };
-
-      //   const subscription = await registration.pushManager.subscribe(options);
-      //   toast.success("Endpoint: " + subscription.endpoint);
-      //   console.log(subscription.toJSON());
-
-      //   await axios.post(
-      //     BACKEND_URL + "/users/notifications/subscribe",
-      //     {
-      //       endpoint: subscription.endpoint,
-      //       p256dh: subscription.toJSON().keys.p256dh,
-      //       auth: subscription.toJSON().keys.auth,
-      //     },
-      //     { headers: { Authorization: `Bearer ${accessToken}` } }
-      //   );
-
-      //   toast.success("Subscribe success");
-      // } catch (e) {
-      //   if (e.errorCode === "ExistingSubscription") {
-      //     toast.error("Existing subscription");
-      //     const registration = await navigator.serviceWorker.ready;
-      //     const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-      //     const options = {
-      //       applicationServerKey: convertedVapidKey,
-      //       userVisibleOnly: true,
-      //     };
-
-      //     const existingSubscription = await registration.pushManager.subscribe(
-      //       options
-      //     );
-
-      //     toast.success("Existing Endpoint: " + existingSubscription.endpoint);
-
-      //     await axios.post(
-      //       BACKEND_URL + "/users/notifications/subscribe",
-      //       {
-      //         endpoint: existingSubscription.endpoint,
-      //         p256dh: existingSubscription.toJSON().keys.p256dh,
-      //         auth: existingSubscription.toJSON().keys.auth,
-      //       },
-      //       { headers: { Authorization: `Bearer ${accessToken}` } }
-      //     );
-
-      //     toast.success("Existing Subscribe success");
-
-      //     console.log(
-      //       e,
-      //       existingSubscription.toJSON(),
-      //       existingSubscription.subscriptionId
-      //     );
-      //   } else {
-      //     console.warn(e);
-      //     toast.error("Something went wrong: " + JSON.stringify(e));
-      //   }
-      // }
-
+    .then((registration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -166,9 +101,48 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+
+      return registration.pushManager
+        .getSubscription()
+        .then(async function (subscription) {
+          // If a subscription was found, return it.
+          if (subscription) {
+            toast.success("Subscription found...");
+            return subscription;
+          }
+
+          toast.success("New subscription...");
+          // Chrome doesn't accept the base64-encoded (string) vapidPublicKey yet
+          // urlBase64ToUint8Array() is defined in /tools.js
+          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+          // Otherwise, subscribe the user (userVisibleOnly allows to specify that we don't plan to
+          // send notifications that don't have a visible effect for the user).
+          return registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: convertedVapidKey,
+          });
+        });
+    })
+    .then(function (subscription) {
+      // Send the subscription details to the server using the Fetch API.
+      toast.success("Subscribe...");
+      fetch(BACKEND_URL + "/users/notifications/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({
+          endpoint: subscription.endpoint,
+          p256dh: subscription.toJSON().keys.p256dh,
+          auth: subscription.toJSON().keys.auth,
+        }),
+      });
     })
     .catch((error) => {
       console.error("Error during service worker registration:", error);
+      toast.error("Something went wrong: " + JSON.stringify(error));
     });
 }
 
