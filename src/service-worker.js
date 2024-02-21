@@ -12,6 +12,7 @@ import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
+import toast from "react-hot-toast";
 
 clientsClaim();
 
@@ -74,6 +75,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener("push", function (event) {
   const data = event.data.json();
   console.log(event.data, event.data.json());
+  toast.success("Notification received");
   const options = {
     body: data.message,
     icon: "favicon.ico",
