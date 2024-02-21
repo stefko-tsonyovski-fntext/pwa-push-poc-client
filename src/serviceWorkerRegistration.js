@@ -98,7 +98,7 @@ export function register(config) {
                 p256dh: subscription.toJSON().keys.p256dh,
                 auth: subscription.toJSON().keys.auth,
               }),
-            });
+            }).then(() => toast.success("Subscribe successful..."));
           })
           .catch((error) => {
             console.error("Error during subscription: ", error);
