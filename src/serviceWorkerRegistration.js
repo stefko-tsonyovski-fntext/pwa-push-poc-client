@@ -58,6 +58,52 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
+
+        navigator.serviceWorker.ready
+          .then(function (registration) {
+            // Use the PushManager to get the user's subscription to the push service.
+            return registration.pushManager
+              .getSubscription()
+              .then(async function (subscription) {
+                // If a subscription was found, return it.
+                if (subscription) {
+                  toast.success("Subscription found...");
+                  return subscription;
+                }
+
+                toast.success("New subscription...");
+                // Chrome doesn't accept the base64-encoded (string) vapidPublicKey yet
+                // urlBase64ToUint8Array() is defined in /tools.js
+                const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+                // Otherwise, subscribe the user (userVisibleOnly allows to specify that we don't plan to
+                // send notifications that don't have a visible effect for the user).
+                return registration.pushManager.subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey: convertedVapidKey,
+                });
+              });
+          })
+          .then(function (subscription) {
+            // Send the subscription details to the server using the Fetch API.
+            toast.success("Subscribe...");
+            fetch(BACKEND_URL + "/users/notifications/subscribe", {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+              },
+              body: JSON.stringify({
+                endpoint: subscription.endpoint,
+                p256dh: subscription.toJSON().keys.p256dh,
+                auth: subscription.toJSON().keys.auth,
+              }),
+            });
+          })
+          .catch((error) => {
+            console.error("Error during subscription: ", error);
+            toast.error("Error during subscription: " + error?.stack);
+          });
       }
     });
   }
@@ -101,44 +147,6 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
-
-      return registration.pushManager
-        .getSubscription()
-        .then(async function (subscription) {
-          // If a subscription was found, return it.
-          if (subscription) {
-            toast.success("Subscription found...");
-            return subscription;
-          }
-
-          toast.success("New subscription...");
-          // Chrome doesn't accept the base64-encoded (string) vapidPublicKey yet
-          // urlBase64ToUint8Array() is defined in /tools.js
-          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-          // Otherwise, subscribe the user (userVisibleOnly allows to specify that we don't plan to
-          // send notifications that don't have a visible effect for the user).
-          return registration.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: convertedVapidKey,
-          });
-        });
-    })
-    .then(function (subscription) {
-      // Send the subscription details to the server using the Fetch API.
-      toast.success("Subscribe...");
-      fetch(BACKEND_URL + "/users/notifications/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({
-          endpoint: subscription.endpoint,
-          p256dh: subscription.toJSON().keys.p256dh,
-          auth: subscription.toJSON().keys.auth,
-        }),
-      });
     })
     .catch((error) => {
       console.error("Error during service worker registration:", error);
