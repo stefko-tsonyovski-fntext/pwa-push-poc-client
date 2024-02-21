@@ -13,6 +13,9 @@ const PUBLIC_KEY =
 
 const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
+const accessToken =
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjY1MTksImlhdCI6MTcwODUyNjIxOSwianRpIjoiYzVjNWJjMDMtNTYwNy00NTAzLWIzZDMtZmRlNDc4MjUyZGE3IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJhMjg2NzEyOC05YWYxLTQzM2ItOTVmMy0zNzcyMmFiYmY0MjUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImEyODY3MTI4LTlhZjEtNDMzYi05NWYzLTM3NzIyYWJiZjQyNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.V3BGYICNv-Y105HTsNXp3UYBBQdvFzJkPiGHi0zp-hXcXuqCw_s9oGAjSIMbnRcGxJLKybNBqNb7d-3IF24dnGT0yMRAL3aKDV76_MBKu30AfiuM40dv_2loyL9yDpzV_NIPre_KjJ19UdvbW60fR2rlhcPyROPxJ38X2u9pieTViCLeL_sXZkOqYkwtlbFr7oIClBlZDkahsgNAw9B3wawopk6OYzD4PrzAfMtPgn1bQ0mmalAgpbSflVt7UDpN6G2bfrR74gA7ySfu4yfffuyKtmPe7acDqfXvACP6Cz5DMa7ioUwNL0TleSdUW5XolCJwpS9dKFdrBf-FR-ty1Q";
+
 const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
@@ -36,9 +39,6 @@ function App() {
   const [subscribeId, setSubscribeId] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(true);
   const [error, setError] = useState("");
-  const [accessToken, setAccessToken] = useState(
-    "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1MjUxNjgsImlhdCI6MTcwODUyNDg2OCwianRpIjoiNThlMDYyMjMtZGY1My00YTY4LTk3NmMtNTM1YzMyZTUyOTdhIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI1ZmE3ZDhlMy1kZDM0LTRlOTMtOTVkYi03N2MzNTZkMmNjYmUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjVmYTdkOGUzLWRkMzQtNGU5My05NWRiLTc3YzM1NmQyY2NiZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.ZKNw3NAmBbhajqbubBMvHgcQNiglckivvsfjtiwW9d1EyAj8m7jyid0V92LKc1b5fcKvJpQ9XC3ufJOHuJnBbdh3Y6h-PtDU1GYoBrYhvdQij8O7PY2o4ea39qttHsLDECmE1FEt1VpIPFCOA_fDLUKIVtc0ISCiaF-YGF9coQDgOTcQQ5FmN3KDJNpnZzSAMfvHYKH3gYBv0k1k1uz9bue9Vpd7OaAPzc_60RSo1vIjqNxsKFy_eix7ryMpcswO89dTv7OcTp71qChS02x0MygysCpg2G_1Lk8w4tMv6vATLXsgdD5UdpAmYaWAyfHr3nA-WNJBiMjPBmL3ctb2uA"
-  );
 
   const onShowSubscribe = () => {
     setShowSubscribe(true);
@@ -104,7 +104,7 @@ function App() {
     }
   };
 
-  const onSubscribe = async () => {
+  const onSubscribe = useCallback(async () => {
     setLoadingSubscribe(true);
 
     try {
@@ -161,7 +161,7 @@ function App() {
     } finally {
       setLoadingSubscribe(false);
     }
-  };
+  }, []);
 
   const onSubmitPush = async (e) => {
     e.preventDefault();
@@ -202,12 +202,8 @@ function App() {
     //     setPushId(result.visitorId);
     //   });
 
-    onSubscribe()
-      .then((res) => console.log(res))
-      .catch((err) =>
-        toast.error("Something went wrong: " + JSON.stringify(err))
-      );
-  }, []);
+    onSubscribe();
+  }, [onSubscribe]);
 
   return (
     <div className="App">
