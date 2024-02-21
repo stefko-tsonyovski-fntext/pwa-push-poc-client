@@ -2,6 +2,7 @@
 // register() is not called by default.
 
 import toast from "react-hot-toast";
+import axios from "axios";
 import {
   accessToken,
   BACKEND_URL,
