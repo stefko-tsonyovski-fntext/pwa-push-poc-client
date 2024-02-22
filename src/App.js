@@ -13,7 +13,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDgyNzcsImlhdCI6MTcwODYwNzk3NywianRpIjoiNGNmOGIzNDYtOGM4My00OGM1LTlmODctOGQ4NTNlNTY0NGYzIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJjOGU4YTEyMC0xMjA0LTQ2Y2QtYjZhYy04ZDcxMGUzMTg0NmIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImM4ZThhMTIwLTEyMDQtNDZjZC1iNmFjLThkNzEwZTMxODQ2YiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.sGC0OKybiCiEz82dTorTPTfF6IDqXMjaU6tbcjaUB1lcX6KFM3pDUCgevtQnYac_5y-scmNc7akkofkt6JylCOkTwtPL3uH15NU3cO4uqV-1k-UiEq5XHyU15Nj2OQg1Z5wmRgYOx_l-rDtoUWNZVog2v4Et9ElcqbmmxBP5U8v2K0oh1uMyT_YG1QmFk87jGM1pA0KRiToz4vMGnR-aTkBV7KnkZ3XQUSBqH3Ct1msPLadUG3Beaaudpa9xvBDBrsIoGWPnj0NtNbdQ1ojc9P4zQkLEJHHUCQqlyPru1QgxDmc3JldQxSykjhERdxDbv5ag1mbOuximKKbFme1E8Q";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDg2MjEsImlhdCI6MTcwODYwODMyMSwianRpIjoiMWQyYWIzNWYtYWQwYS00ZjAyLThjNTEtNzc0NTRiYjhiYjczIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI0ZDcyZWM2OC0xY2VkLTQ0ZDMtYTU1NC02YjFiMzhjYTAyZGIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjRkNzJlYzY4LTFjZWQtNDRkMy1hNTU0LTZiMWIzOGNhMDJkYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.DUV1C7vLek5hWgIHfK4b43d7iS2P_8ClWRPWqkhEJvflpHAykSOy3gMxfdSRVpKhhz_dQFBU5kU92ZyAasnJfxYX677nJ6LDuJk92g10nje2ZqYPEIPdFR_xjOG1ZK8DAow7DuJk5sYja9E3wmAubuKj75sG9etGksBsjntAvxh5N9WW8rAMgml0iXwBVV-GSuwKfRIPiNArB5QQaZfVwoEGCg8iHDZ4qNwwctXc9wwi4KfHAcbi6ilc8y6dD5Xss2NzPfjWdDX8eBsaFJQNAEegFnGh3ZE4ApfbPl8bnszfOW4SD9osq-EYD7cAtj9GzsM1nI9VEAFiF8Lgc619QA";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -30,20 +30,25 @@ export const urlBase64ToUint8Array = (base64String) => {
 };
 
 export const saveSubscription = async (subscription) => {
-  const response = await fetch(BACKEND_URL + "/users/notifications/subscribe", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: JSON.stringify({
-      endpoint: subscription.endpoint,
-      p256dh: subscription.toJSON().keys.p256dh,
-      auth: subscription.toJSON().keys.auth,
-    }),
-  });
+  const responseJson = await fetch(
+    BACKEND_URL + "/users/notifications/subscribe",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        endpoint: subscription.endpoint,
+        p256dh: subscription.toJSON().keys.p256dh,
+        auth: subscription.toJSON().keys.auth,
+      }),
+    }
+  );
 
-  return response.json();
+  const response = await responseJson.json();
+
+  return response;
 };
 
 function App() {
