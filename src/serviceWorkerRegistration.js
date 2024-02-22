@@ -108,7 +108,7 @@ export function register(config) {
           await saveSubscription(subscription);
           toast.success("Successful subscription");
         } catch (error) {
-          toast.error("Subscription not successful", JSON.stringify(error));
+          toast.error("Subscription not successful: " + JSON.stringify(error));
           console.error(error);
         }
       }
