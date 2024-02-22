@@ -96,26 +96,25 @@ export function register(config) {
 
           toast.success("New subscription");
 
-          // Notification.requestPermission((result) => {
-          //   console.log(result);
-          //   if (result === "granted") {
-          //     alert("Permissions granted");
-          //   } else {
-          //     alert("Permissions denied");
-          //   }
-          // });
+          const result = await Notification.requestPermission();
 
-          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+          if (result === "granted") {
+            toast.success("Access granted");
 
-          const subscription = await registration.pushManager.subscribe({
-            applicationServerKey: convertedVapidKey,
-            userVisibleOnly: true,
-          });
+            const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
-          toast.success("Subscribed to service worker");
+            const subscription = await registration.pushManager.subscribe({
+              applicationServerKey: convertedVapidKey,
+              userVisibleOnly: true,
+            });
 
-          await saveSubscription(subscription);
-          toast.success("Successful subscription");
+            toast.success("Subscribed to service worker");
+
+            await saveSubscription(subscription);
+            toast.success("Successful subscription");
+          } else {
+            toast.error("Access not granted");
+          }
         } catch (error) {
           toast.error("Subscription not successful: " + JSON.stringify(error));
           console.error(error);
