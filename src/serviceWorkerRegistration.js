@@ -59,9 +59,10 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         const registration = await registerValidSW(swUrl, config);
-
+        console.log(registration);
         if (!registration) {
           toast.error("Service worker registration failed");
+          return;
         }
 
         if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
