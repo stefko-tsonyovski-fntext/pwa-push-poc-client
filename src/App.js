@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import TextInput from "./components/Input/TextInput";
 import { useServiceWorker } from "./useServiceWorker";
+import { useSubscribe } from "react-pwa-push-notifications";
 
 // in PROD use from .env
 export const PUBLIC_KEY =
@@ -12,7 +13,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDI2ODcsImlhdCI6MTcwODYwMjM4NywianRpIjoiMzNmZWZiYTItOTBkNi00MzdlLWE3NWUtMmVkN2M5NzQyMTA4IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJkYmU5ZThjZC1mMTE4LTRhZTctOGIxYy05MmYwNjYxMzhkMzUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImRiZTllOGNkLWYxMTgtNGFlNy04YjFjLTkyZjA2NjEzOGQzNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.Otg7Cprf0lFiL_oIzG85ub5ERU1LgXitI7P3hpgCC-MScg-pehYy9pdCwhQy4RjuUpE0ukgdEq1x8xosq1FlUTLmKh8T_wV-swSiGvrTxYm4N8OBNglHTp51_0vDdpJEi5fSKt5HGnxLkRenzjymtTCJkcutD_Tue-_JDgW073rKydNxCJcRPNhOJt6aULufaMFulncUPL86cndtRQNztT-H1X2GZyQLBF-m--uA6-2OKGrgLPgzwAzpdMmaXFk_9pXhAMLNNRFoK53leYuuQldVZOhgJMLLcnXcQiDsCr5RJ18VUd2Fnlley3g-Of-7jBzV2ih-AF34w1Y3krvXbQ";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDgxMTEsImlhdCI6MTcwODYwNzgxMSwianRpIjoiYTUzNjBiMzQtYTIyYS00Y2I5LWExOTAtNTg0NWFkNWY0N2QxIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIzNmQ1OGYzZi02YzgyLTQ1ZTEtYjY2Yy1kMDEwYjBiNTE3MmMiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjM2ZDU4ZjNmLTZjODItNDVlMS1iNjZjLWQwMTBiMGI1MTcyYyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.g0jTGboclNRXCkt2sWAai3xFajahVTaQ088e2JaiSTWkJ87PXQUP2nyFeI5bhxIq5WlcsBBRLu6oJjnnHdg3fTkkCVftUob8xchptQ2SHtE7KsoEGoebSOQcA0P4QntF_6_7kAbQEU2-vRvx_ttNycBqzfTam2yc4K7ep3H54eFRMdK8gQFUpBawd2FpGxuA0xsnf3Sykgb8LL5JT6x5qwq30i8tdB-45y7CJm1rMjjQ4MPW030NRHaoaTrSV16MVz0QnfQkRi3Jr3Le21D2A6t5tG-48q1gfLJWgpH2qfF4erqBqz5zYUBpW5f5G6ZOsVm8kskt8eAfMWy2u1jSBQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -28,41 +29,7 @@ export const urlBase64ToUint8Array = (base64String) => {
   return outputArray;
 };
 
-export const notificationsSupported = () =>
-  "Notification" in window &&
-  "serviceWorker" in navigator &&
-  "PushManager" in window;
-
-export const subscribe = async () => {
-  toast.success("Subcribe start...");
-
-  if ("serviceWorker" in navigator) {
-    try {
-      const swRegistration = await navigator.serviceWorker.ready;
-      toast.success("Sw registration: " + JSON.stringify(swRegistration));
-      await window?.Notification.requestPermission();
-      toast.success("Notifications permission...");
-
-      const options = {
-        applicationServerKey: PUBLIC_KEY,
-        userVisibleOnly: true,
-      };
-
-      const subscription = await swRegistration.pushManager.subscribe(options);
-      toast.success("Handle subscription...");
-
-      await saveSubscription(subscription);
-      toast.success("Store subscription...");
-    } catch (err) {
-      console.error(err);
-      toast.error("Error during subscription: " + JSON.stringify(err));
-    }
-  } else {
-    toast.error("Service workers are not supported.");
-  }
-};
-
-const saveSubscription = async (subscription) => {
+export const saveSubscription = async (subscription) => {
   const response = await fetch(BACKEND_URL + "/users/notifications/subscribe", {
     method: "POST",
     headers: {
@@ -86,10 +53,49 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
+  const { getSubscription } = useSubscribe();
+
+  const onShowSubscribe = () => setShowSubscribe(true);
 
   const onShowPush = () => {
     setShowSubscribe(false);
   };
+
+  const onSubscribe = useCallback(async () => {
+    try {
+      toast.success("Subscribe in progress...");
+      const subscription = await getSubscription();
+      toast.success("Subscription acquired...");
+
+      const response = await saveSubscription(subscription);
+
+      toast.success("Subscribed successfully...");
+      console.log("Subscribed successfully", response);
+    } catch (e) {
+      if (e.errorCode === "ExistingSubscription") {
+        toast.success("Existing subscription block...");
+        const registration = await navigator.serviceWorker.ready;
+
+        const existingSubscription =
+          await registration.pushManager.getSubscription();
+
+        console.log(
+          "Existing subscription",
+          e,
+          existingSubscription.toJSON(),
+          existingSubscription.subscriptionId
+        );
+
+        const response = await saveSubscription(existingSubscription);
+
+        toast.success("Subscribed successfully...");
+        console.log("Subscribed successfully", response);
+      } else {
+        toast.error("Subscribe to push failed: " + JSON.stringify(e));
+        console.error("Subscribe to push failed", e);
+      }
+    }
+  }, []);
 
   const onSubmitPush = async (e) => {
     e.preventDefault();
@@ -123,10 +129,8 @@ function App() {
   );
 
   useEffect(() => {
-    subscribe()
-      .then(() => toast.success("Subscription process successful"))
-      .catch((err) => toast.error("Error: " + JSON.stringify(err)));
-  }, []);
+    onSubscribe();
+  }, [onSubscribe]);
 
   return (
     <div className="App">
@@ -144,7 +148,7 @@ function App() {
           <div className={`tab-item`}>
             <button
               className={`tab ${showSubscribe ? "active" : ""}`}
-              onClick={subscribe}
+              onClick={onShowSubscribe}
             >
               Subscribe
             </button>
@@ -188,7 +192,7 @@ function App() {
         )}
         {showSubscribe && (
           <div className="send">
-            <form onSubmit={subscribe}>
+            <form onSubmit={onSubscribe}>
               <button
                 className={loadingSubscribe ? "loading" : ""}
                 type="submit"
