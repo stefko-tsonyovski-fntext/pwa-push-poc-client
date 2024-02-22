@@ -96,6 +96,15 @@ export function register(config) {
 
           toast.success("New subscription");
 
+          Notification.requestPermission((result) => {
+            console.log(result);
+            if (result === "granted") {
+              alert("Permissions granted");
+            } else {
+              alert("Permissions denied");
+            }
+          });
+
           const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
           const subscription = await registration.pushManager.subscribe({
