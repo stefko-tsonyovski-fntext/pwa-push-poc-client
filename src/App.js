@@ -13,7 +13,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDg2MjEsImlhdCI6MTcwODYwODMyMSwianRpIjoiMWQyYWIzNWYtYWQwYS00ZjAyLThjNTEtNzc0NTRiYjhiYjczIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI0ZDcyZWM2OC0xY2VkLTQ0ZDMtYTU1NC02YjFiMzhjYTAyZGIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjRkNzJlYzY4LTFjZWQtNDRkMy1hNTU0LTZiMWIzOGNhMDJkYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.DUV1C7vLek5hWgIHfK4b43d7iS2P_8ClWRPWqkhEJvflpHAykSOy3gMxfdSRVpKhhz_dQFBU5kU92ZyAasnJfxYX677nJ6LDuJk92g10nje2ZqYPEIPdFR_xjOG1ZK8DAow7DuJk5sYja9E3wmAubuKj75sG9etGksBsjntAvxh5N9WW8rAMgml0iXwBVV-GSuwKfRIPiNArB5QQaZfVwoEGCg8iHDZ4qNwwctXc9wwi4KfHAcbi6ilc8y6dD5Xss2NzPfjWdDX8eBsaFJQNAEegFnGh3ZE4ApfbPl8bnszfOW4SD9osq-EYD7cAtj9GzsM1nI9VEAFiF8Lgc619QA";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDkwMDQsImlhdCI6MTcwODYwODcwNCwianRpIjoiZjQ2YTA3ODUtMjg4Mi00YzM4LTgyOGEtZDAwYTg1MjBkMmQzIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI4MTJjODE4NS1iZDU0LTQxMjAtYWNiZi1kZjJjNjI4ZmU3YjgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjgxMmM4MTg1LWJkNTQtNDEyMC1hY2JmLWRmMmM2MjhmZTdiOCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.inhA_r6opz00nMe4Eq-LMZyjRgtuDgHaBHdPYVWPKVpMSmhNmpn-XHpu5LXo42iKzV2Hq27e_j5-r-KQAXnncDqAaezraqmVUF5sYDrUnD7DvPUqjWjQREsPgudWXR07hcs270IoTRvip3Wk-M8VZpuhmIMcAiVnCL_m37H1ZKj4epATJU7wFFUbwHQm2PFHnP-NrAAjx7hmWJWQnZdebFAqAGGcl9TZ6Y5Lr9_Qm2cprxz2WWfHZ7mz4UbKrqa4BtNksXD9Qhx6dF_SeXY_AJOK916Uep7ThVsvVoo1OG_aoCT2THfWp7DSP0iYfVLSuM4igEHTY8zUhQnCdD6TEw";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -30,19 +30,25 @@ export const urlBase64ToUint8Array = (base64String) => {
 };
 
 export const saveSubscription = async (subscription) => {
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const body = JSON.stringify({
+    endpoint: subscription.endpoint,
+    p256dh: subscription.toJSON().keys.p256dh,
+    auth: subscription.toJSON().keys.auth,
+  });
+
+  toast.success("Payload: " + body);
+
   const responseJson = await fetch(
     BACKEND_URL + "/users/notifications/subscribe",
     {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({
-        endpoint: subscription.endpoint,
-        p256dh: subscription.toJSON().keys.p256dh,
-        auth: subscription.toJSON().keys.auth,
-      }),
+      headers,
+      body,
     }
   );
 
