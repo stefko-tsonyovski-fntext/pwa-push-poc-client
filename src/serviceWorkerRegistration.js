@@ -103,6 +103,8 @@ export function register(config) {
             userVisibleOnly: true,
           });
 
+          toast.success("Subscribed to service worker");
+
           await saveSubscription(subscription);
           toast.success("Successful subscription");
         } catch (error) {
