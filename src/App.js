@@ -13,7 +13,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDkxNTIsImlhdCI6MTcwODYwODg1MiwianRpIjoiYWMyYzNiMzUtYzM2MS00NDRkLTk0YWMtMTc2NTYzYzAyNTNkIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI1ZGRjNGE5YS1kMmM0LTQxODQtOWI3Yy1kZTgwODlhZDE2ZTciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjVkZGM0YTlhLWQyYzQtNDE4NC05YjdjLWRlODA4OWFkMTZlNyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.nbIVL2QXVUwgzYLNPI3nM8yLqjmkQzEQ2AQDlQMmTUfhEkdlt-uYlb5RjH489aW2kmUJd9hPeyy_T3Xfhu57WFnAOQmtfP1OKJ4YQVbgoaqm2pqhMbbpwzE81xCX5GQqcDnKNwFMyqjv7Dah9tyyfy0OIjgaY2wZnJ_enGlzv4J0zirdZ3peck6aREPZPuSbrwUgAP6D6Xqz72i-KbbfVbob2h9Eixr2DQ0kv1UA7J1qypjXNqO0bn-7CwGtZBzHureUAShBm0X97CNTo-Hpw0CSiHbIe6VRWA3I94lpbMaWReZk8CbzA8WEBrJiKTIlKQQ9G0bvKchYjsGgn5JOYw";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDk1MTYsImlhdCI6MTcwODYwOTIxNiwianRpIjoiNWZhODVkMDUtZDMwNS00YTg4LThjYTItZjZhYmY5YTQxNmNmIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZjMzIzYWItZGQwYy00YTdjLTllMjgtNjRhMGY2MGQ4NzY3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJhYzYyZjUwNy01NTgwLTRkYTgtYTQ3Zi04YTEyOGVjYTViMTUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImFjNjJmNTA3LTU1ODAtNGRhOC1hNDdmLThhMTI4ZWNhNWIxNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM0QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNEBhYnYuYmcifQ.bjZHNwH-pOoFMtCnA6BXInHWw6xdBrMH1z_qO4dB0NgpME9ijpnKsDt3nfKmE4lw91a0BWjMtax5VGkWwW3S83kKSnP0S3nplJof8ulbzvSFZfco37FxyeBQGC5ImGlVmUJAfbLAr5TqN1yMuWhMeK402Bl19_P0j4jY_matB3p92mpt-dug4WqKWs0r4vGTuSo7_1NRUqx4GasXXdhqsA3ZUb_CGcWl9mSJBe0nD8V--brD-gIELoCiSdJ9yClF1cVqzUI1_01g1BuLc0sr-uqw-VrcQyzhAZTulhJG3l6A1bgp8U9W8ZK1yTtvUqcVAbtFdGa6N298E3-7MIzEkQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -43,22 +43,11 @@ export const saveSubscription = async (subscription) => {
 
   const body = JSON.stringify(payload);
 
-  toast.success("Endpoint: " + payload.endpoint);
-  toast.success("P256dh: " + payload.p256dh);
-  toast.success("Auth: " + payload.auth);
-
-  const responseJson = await fetch(
-    BACKEND_URL + "/users/notifications/subscribe",
-    {
-      method: "POST",
-      headers,
-      body,
-    }
-  );
-
-  const response = await responseJson.json();
-
-  return response;
+  await fetch(BACKEND_URL + "/users/notifications/subscribe", {
+    method: "POST",
+    headers,
+    body,
+  });
 };
 
 function App() {
@@ -82,10 +71,10 @@ function App() {
       const subscription = await getSubscription();
       toast.success("Subscription acquired...");
 
-      const response = await saveSubscription(subscription);
+      await saveSubscription(subscription);
 
       toast.success("Subscribed successfully...");
-      console.log("Subscribed successfully", response);
+      console.log("Subscribed successfully");
     } catch (e) {
       if (e.errorCode === "ExistingSubscription") {
         toast.success("Existing subscription block...");
@@ -101,10 +90,10 @@ function App() {
           existingSubscription.subscriptionId
         );
 
-        const response = await saveSubscription(existingSubscription);
+        await saveSubscription(existingSubscription);
 
         toast.success("Subscribed successfully...");
-        console.log("Subscribed successfully", response);
+        console.log("Subscribed successfully");
       } else {
         toast.error("Subscribe to push failed: " + JSON.stringify(e));
         console.error("Subscribe to push failed", e);
