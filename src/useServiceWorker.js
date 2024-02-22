@@ -6,16 +6,6 @@ export const useServiceWorker = () => {
   const [waitingWorker, setWaitingWorker] = useState(null);
   const [showReload, setShowReload] = useState(false);
 
-  // called when a service worker
-  // updates. this function is a callback
-  // to the actual service worker
-  // registration onUpdate.
-  const onSWUpdate = useCallback((registration) => {
-    setShowReload(true);
-    setWaitingWorker(registration.waiting);
-    setRegistration(registration);
-  }, []);
-
   // simply put, this tells the service
   // worker to skip the waiting phase and then reloads the page
   const reloadPage = useCallback(async () => {
@@ -30,10 +20,8 @@ export const useServiceWorker = () => {
     // If you want your app to work offline and load faster, you can change
     // unregister() to register() below. Note this comes with some pitfalls.
     // Learn more about service workers: https://cra.link/PWA
-    serviceWorkerRegistration.register({
-      onUpdate: onSWUpdate,
-    });
-  }, [onSWUpdate]);
+    serviceWorkerRegistration.register();
+  }, []);
 
   return { showReload, waitingWorker, reloadPage };
 };

@@ -14,7 +14,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1OTUxMDUsImlhdCI6MTcwODU5NDgwNSwianRpIjoiYjg2YWY2ZTctNGJhYy00N2VkLTgwMjItNGNhNTU5ZWYyNWJiIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJjZGZhYzdjYS1mMGI5LTRmYmMtYjQ1MC01YThkNzU0NDQwMjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImNkZmFjN2NhLWYwYjktNGZiYy1iNDUwLTVhOGQ3NTQ0NDAyNiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.h9cjCyAEz6zlccSp2hFf6tIN2fExP_V0V4sLf2LCQEMk9Z6T03yLbA-NCsJ6_OW8SAwyvTmVkCYvwkUa6BlybMGSjNSDWizHQIsdI0ODnWXZw7sD7Am4e2V62XA0CtyRG88fEl2nDEmXKFzslFmwqV1jAQt6X918xq90NcjBYDeC4xexZ9vo0sCLAs38Hf_pwuNYuPgYpjKJQ7OwndRx0AoF8i8dqLP38qdDbsnQQsGkaryVrFoHGz7A1YtTCmPbQOVwLxVc4vrY1RWz1ghvDrWYQIQK9LDoNO4TH7Yp76pmbExh2fYd5776fdC876cQ0ujeVf4AWcxmKR5zZ6oMfw";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1OTU1MzQsImlhdCI6MTcwODU5NTIzNCwianRpIjoiOTUwOTExZTgtMjQ5My00MDYwLWI2ODAtOGMxNTRmOTkwZTg1IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJkODEzY2M0ZS0yNzBlLTRjZDgtYmQzZS05ODEyYjBkMzY4ZmQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImQ4MTNjYzRlLTI3MGUtNGNkOC1iZDNlLTk4MTJiMGQzNjhmZCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.WIxbFjBEeS_B9NbJjBaRFdGdy9XCOctiZIRJO8bMeJnxTnPNGOJ3YYFGAgB4W1DpVIN2nrcaSAtKq_-F304312IVWwsjkRuavWwjkSQGdD-O87xjxW8Dfl36n-p79ufJ8rECq0Wm6FpshjQdyEsFrRsGuLSvLKNd1LlTrBKNDNrmZsKwVRzOl8WII0dUg-K9izGUybOAuXVNLHsG4ppkFbji8pB3WzABvh_AOcYrGrAXW_ho8ZmDhKdLDB7K1UiuAGO9p8TaDmICp-tkTCv-5DqPODeR6xc4sCF6tfeIfpnDBmn-EZa2WZ49KL3pGz8tL6XOOxx9gj0B9N6mWXXwFQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -81,15 +81,9 @@ function App() {
   const [pushId, setPushId] = useState("push id");
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
-  const [subscribeId, setSubscribeId] = useState("subcribe id");
   const [showSubscribe, setShowSubscribe] = useState(true);
-  const [error, setError] = useState("");
-  const [registration, setRegistration] = useState(null);
-  const { waitingWorker, showReload, reloadPage } = useServiceWorker();
+  const worker = useServiceWorker();
 
-  const onShowSubscribe = () => {
-    setShowSubscribe(true);
-  };
   const onShowPush = () => {
     setShowSubscribe(false);
   };
@@ -126,34 +120,10 @@ function App() {
   );
 
   useEffect(() => {
-    // FingerprintJS.load()
-    //   .then((fp) => fp.get())
-    //   .then((result) => {
-    //     setSubscribeId(result.visitorId);
-    //     setPushId(result.visitorId);
-    //   });
-    // serviceWorkerRegistration.register();
-    // subscribe()
-    //   .then(() => toast.success("Subscription process successful"))
-    //   .catch((err) => toast.error("Error: " + JSON.stringify(err)));
+    subscribe()
+      .then(() => toast.success("Subscription process successful"))
+      .catch((err) => toast.error("Error: " + JSON.stringify(err)));
   }, []);
-
-  useEffect(() => {
-    if (showReload && waitingWorker) {
-      console.debug("Update is available");
-
-      subscribe()
-        .then(() => {
-          reloadPage()
-            .then(() => toast.success("Reload success"))
-            .catch((err) =>
-              toast.error("Reload error: " + JSON.stringify(err))
-            );
-          toast.success("Success");
-        })
-        .catch((err) => toast.error("Error: " + JSON.stringify(err)));
-    }
-  }, [waitingWorker, showReload, reloadPage]);
 
   return (
     <div className="App">
