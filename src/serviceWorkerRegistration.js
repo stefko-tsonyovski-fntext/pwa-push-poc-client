@@ -41,7 +41,7 @@ export function register(config) {
       return;
     }
 
-    window.addEventListener("load", () => {
+    window.addEventListener("load", async () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
@@ -58,93 +58,98 @@ export function register(config) {
         });
       } else {
         // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
+        const registration = await registerValidSW(swUrl, config);
+
+        if (!registration) {
+          toast.error("Service worker registration failed");
+        }
+
+        if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+          toast.error("Service worker and push manager not supported");
+          return;
+        }
+
+        toast.success("Service worker supported");
+
+        if (!registration.pushManager) {
+          toast.error("Push manager unavailable");
+          return;
+        }
+
+        toast.success("Push manager found");
+
+        const existingSubscription =
+          await registration.pushManager.getSubscription();
+
+        if (existingSubscription) {
+          toast.error("Subscription exists");
+
+          await saveSubscription(existingSubscription);
+          toast.success("Successful subscription");
+
+          return;
+        }
+
+        toast.success("New subscription");
+
+        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+        const subscription = await registration.pushManager.subscribe({
+          applicationServerKey: convertedVapidKey,
+          userVisibleOnly: true,
+        });
+
+        await saveSubscription(subscription);
+        toast.success("Successful subscription");
       }
     });
   }
 }
 
-function registerValidSW(swUrl, config) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then(async (registration) => {
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        if (installingWorker == null) {
-          return;
-        }
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === "installed") {
-            if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              console.log(
-                "New content is available and will be used when all " +
-                  "tabs for this page are closed. See https://cra.link/PWA."
-              );
+async function registerValidSW(swUrl, config) {
+  try {
+    const registration = await navigator.serviceWorker.register(swUrl);
 
-              // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration);
-              }
-            } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              console.log("Content is cached for offline use.");
+    registration.onupdatefound = () => {
+      const installingWorker = registration.installing;
+      if (installingWorker == null) {
+        return;
+      }
+      installingWorker.onstatechange = () => {
+        if (installingWorker.state === "installed") {
+          if (navigator.serviceWorker.controller) {
+            // At this point, the updated precached content has been fetched,
+            // but the previous service worker will still serve the older
+            // content until all client tabs are closed.
+            console.log(
+              "New content is available and will be used when all " +
+                "tabs for this page are closed. See https://cra.link/PWA."
+            );
 
-              // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+            // Execute callback
+            if (config && config.onUpdate) {
+              config.onUpdate(registration);
+            }
+          } else {
+            // At this point, everything has been precached.
+            // It's the perfect time to display a
+            // "Content is cached for offline use." message.
+            console.log("Content is cached for offline use.");
+
+            // Execute callback
+            if (config && config.onSuccess) {
+              config.onSuccess(registration);
             }
           }
-        };
+        }
       };
+    };
 
-      if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-        toast.error("Service worker and push manager not supported");
-        return;
-      }
-
-      toast.success("Service worker supported");
-
-      if (!registration.pushManager) {
-        toast.error("Push manager unavailable");
-        return;
-      }
-
-      toast.success("Push manager found");
-
-      const existingSubscription =
-        await registration.pushManager.getSubscription();
-
-      if (existingSubscription) {
-        toast.error("Subscription exists");
-
-        await saveSubscription(existingSubscription);
-        toast.success("Successful subscription");
-
-        return;
-      }
-
-      toast.success("New subscription");
-
-      const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-      const subscription = await registration.pushManager.subscribe({
-        applicationServerKey: convertedVapidKey,
-        userVisibleOnly: true,
-      });
-
-      await saveSubscription(subscription);
-      toast.success("Successful subscription");
-    })
-    .catch((error) => {
-      console.error("Error during service worker registration:", error);
-      toast.error(error?.stack);
-    });
+    return registration;
+  } catch (error) {
+    console.error("Error during service worker registration:", error);
+    toast.error(error?.stack);
+  }
 }
 
 function checkValidServiceWorker(swUrl, config) {
