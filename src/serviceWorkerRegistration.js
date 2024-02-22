@@ -113,7 +113,7 @@ export function register(config) {
             }).then(() => toast.success("Subscribe successful..."));
           })
           .catch((error) => {
-            console.error("Error during subscription: ", error);
+            console.error("Error during subscription: ", JSON.stringify(error));
             toast.error("Error during subscription: " + error?.stack);
           });
       }
