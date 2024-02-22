@@ -1,11 +1,11 @@
 import React from "react";
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import { useSubscribe } from "react-pwa-push-notifications";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import TextInput from "./components/Input/TextInput";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import { useServiceWorker } from "./useServiceWorker";
 
 // in PROD use from .env
 export const PUBLIC_KEY =
@@ -14,7 +14,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1OTMzNTEsImlhdCI6MTcwODU5MzA1MSwianRpIjoiN2QzYWM0YzctYzQ5NC00ZDY0LTk1OWQtNzQ5YzFiMWQwOWRlIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIzNmI5NmQ1NC04ZDA1LTQxNmQtYTU5Mi04Yjk5M2YwNDgxNjciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjM2Yjk2ZDU0LThkMDUtNDE2ZC1hNTkyLThiOTkzZjA0ODE2NyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.RwW8_Dh46LpWPX9AwisFsyjIKGS5Vz4tWpuc3JXz-z270eTSO2TmS9eKgh3FE-sgMopIiF5xrNixTDSEcPAY8utsT6ONRCx81lSbA4y8e_xyAvsyfoj9PemJbjaNvrEElh0EebC27zd8QXUlLROhxSeLTaKKqEM6i5_CusSqhy17W_PlRCgVJBFJXtT_3kfDLq4M_fGZJCQzXgaAn14H1h_tFXchTw18bbPvX2COoxYGKis9I0kUFxHTMyP4phNyT-3KB7SXJgn-sMUSeOae_23TtrELR7Zz1mpBMLkl2Zcjfi57OkdPfptUrlAIHdzBtj3jAK1qhnqQoypvuS188w";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1OTQ5NzgsImlhdCI6MTcwODU5NDY3OCwianRpIjoiNTQzNWI5OTEtYjU0ZS00N2M3LWI0YWQtNWYyODM1N2IxNDRhIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJmZGNjODAyMi0yOGNmLTRkMTItYmNlOC1kNGJmMjZhMzI0ZTciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImZkY2M4MDIyLTI4Y2YtNGQxMi1iY2U4LWQ0YmYyNmEzMjRlNyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.bATGdmWKXjeY_1iVYtHBFacyNJ_f7SQCsx1gkQp3r32wKsLaFpnKY91lrgmjd9z3uo747B13n39hgIvPUgfG8117whKCU0wOukR4ctPczu3MjIsiUqSydOmW2fhPEzJRbnNQDBVCE0MXsbE_Ay5JgOMOX9_u2KXQHh1KyoARyzLrJHVO7e_QXiTPzw_iauNqESa0h2nDAW4l8Mruf3nxwsCw6X67eZYv_M7aUBw0GFBjMT-U2WQ_o8Vb4JWLzMpRB1ak90gzlWARiyZUfvypIgUOtE9Ed8XsLlg_bbeMj-tQh2yWxt4nwaeMJZ5uVPbOd41nFY7OG6j5qkxlCM9onw";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -84,6 +84,8 @@ function App() {
   const [subscribeId, setSubscribeId] = useState("subcribe id");
   const [showSubscribe, setShowSubscribe] = useState(true);
   const [error, setError] = useState("");
+  const [registration, setRegistration] = useState(null);
+  const { waitingWorker, showReload, reloadPage } = useServiceWorker();
 
   const onShowSubscribe = () => {
     setShowSubscribe(true);
@@ -130,15 +132,28 @@ function App() {
     //     setSubscribeId(result.visitorId);
     //     setPushId(result.visitorId);
     //   });
-
-    subscribe()
-      .then(() => toast.success("Subscription process successful"))
-      .catch((err) => toast.error("Error: " + JSON.stringify(err)));
+    // serviceWorkerRegistration.register();
+    // subscribe()
+    //   .then(() => toast.success("Subscription process successful"))
+    //   .catch((err) => toast.error("Error: " + JSON.stringify(err)));
   }, []);
 
-  if (!notificationsSupported()) {
-    return <h3>Please install the PWA first!</h3>;
-  }
+  useEffect(() => {
+    if (showReload && waitingWorker) {
+      console.debug("Update is available");
+
+      subscribe()
+        .then(() => {
+          reloadPage()
+            .then(() => toast.success("Reload success"))
+            .catch((err) =>
+              toast.error("Reload error: " + JSON.stringify(err))
+            );
+          toast.success("Success");
+        })
+        .catch((err) => toast.error("Error: " + JSON.stringify(err)));
+    }
+  }, [waitingWorker, showReload, reloadPage]);
 
   return (
     <div className="App">
