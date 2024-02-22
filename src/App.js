@@ -12,7 +12,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2Mzc0NjYsImlhdCI6MTcwODYzNzE2NiwianRpIjoiMjRiZTNkODktMzk5Yy00ZGJiLWI0ZTMtMzhjNTZmYzI4NzcyIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmQ2ZjFmZDMtOTcyNi00NDViLTk3ZDYtNDI0ZDdkYzRmZThiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIyNmZhYmMzMS00ZmI0LTRjODgtOWIwMi1iY2QxMWNkYjZhYjQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjI2ZmFiYzMxLTRmYjQtNGM4OC05YjAyLWJjZDExY2RiNmFiNCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM1QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNUBhYnYuYmcifQ.zaru5PGpu4l7GXoThFY9luF1sslQF_LvJ8Yi8AB8ms3APFcxiJaFVPzKxQvylramnu0zY42lvu_fSKUBICtRVkQVhAZdrKBaKtmT5rGKGRtUP2CwN1R0gWumElCZleKfarGR3zobb4oqRGXQpCewNeUZ6puF8L8AS5L4k_eu5--T1yHVA1EtJBKM7q_w_hM3tm8WecF6VNBkP8IpwonIgKl_sd1iuKkY-e7KasZtxoRkJPMjE8d0ZvUCX0_z6MreMdd00PAiy3intIZIWrNqZcjaoEDkGfCEYIoEv2Q7xwekQKg4wd8lc9YBGFtP3iLMVAokqZ-KWa6n2rSuVRrCRw";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2Mzc3OTMsImlhdCI6MTcwODYzNzQ5MywianRpIjoiOGJhZGJjNDMtYjdlNi00MjE1LTg4NGEtYTc0YTlmODkxZDk1IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmQ2ZjFmZDMtOTcyNi00NDViLTk3ZDYtNDI0ZDdkYzRmZThiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIxNWI4ZTBkZS01YmU4LTQ0YmQtYjhmZC02MjMzNTcyN2MyMDUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjE1YjhlMGRlLTViZTgtNDRiZC1iOGZkLTYyMzM1NzI3YzIwNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM1QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNUBhYnYuYmcifQ.jPjVNSyxsm3pigPfvQcnJZ2UJSBOC8MYCygx-Vo0u0PnhiXKpe99EQ1fBjeoQmn2z25bZhgmzWWpbQHGVbfh9TmyqOArh7LCzLbTPGLSHtsAgxlLdipuLV2NT0cwMb27isTthlPpkWfjQPNB9z2_Dy8qVOXP2RjeaMvIP-Uc-jMH2tdO1U64cl8fOVvjz6jX7rO1aveUdV2OQVUbmCm2IFtaR1RDKBeUgw-VSg9EdBOufXAyisVOKjTjKsyoNBO9fNAKQpUUDG6by4pRi_PJ_OVc4tJPT2ThJEcs1AIoA9J4CUQFA9ifPY88sFkZJQMrQdjsbQNb7kHJM6yGJqN21Q";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -129,8 +129,8 @@ function App() {
   };
 
   const onAskUserPermissions = async () => {
-    console.log("Ask user for permissions");
     const result = await Notification.requestPermission();
+    toast.success("Ask user for permissions: " + result);
 
     if (result === "granted") {
       toast.success("Access granted");
@@ -190,7 +190,7 @@ function App() {
             </button>
             <button
               id="ask-user-permissions"
-              style={{ visibility: "hidden" }}
+              className={`tab ${showSubscribe ? "active" : ""}`}
               onClick={onAskUserPermissions}
             >
               Ask user permissions
