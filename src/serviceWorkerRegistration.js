@@ -58,12 +58,7 @@ export function register(config) {
         });
       } else {
         // Is not localhost. Just register service worker
-        const registration = await registerValidSW(swUrl, config);
-        console.log(registration);
-        if (!registration) {
-          toast.error("Service worker registration failed");
-          return;
-        }
+        await registerValidSW(swUrl, config);
 
         if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
           toast.error("Service worker and push manager not supported");
@@ -71,6 +66,13 @@ export function register(config) {
         }
 
         toast.success("Service worker supported");
+
+        const registration = await navigator.serviceWorker.ready;
+        console.log(registration);
+        if (!registration) {
+          toast.error("Service worker registration failed");
+          return;
+        }
 
         if (!registration.pushManager) {
           toast.error("Push manager unavailable");
