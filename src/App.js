@@ -136,7 +136,7 @@ function App() {
   );
 
   useEffect(() => {
-    onSubscribe();
+    // onSubscribe();
   }, [onSubscribe]);
 
   return (
