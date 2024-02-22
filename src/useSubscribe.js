@@ -37,7 +37,6 @@ export const useSubscribe = ({ publicKey }) => {
    * @throws {ErrorObject} - An object containing an error code.
    */
   const getSubscription = async () => {
-    console.log("second");
     if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
       toast.error("Service worker and push manager not supported");
 
