@@ -12,7 +12,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2Mzc3OTMsImlhdCI6MTcwODYzNzQ5MywianRpIjoiOGJhZGJjNDMtYjdlNi00MjE1LTg4NGEtYTc0YTlmODkxZDk1IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmQ2ZjFmZDMtOTcyNi00NDViLTk3ZDYtNDI0ZDdkYzRmZThiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIxNWI4ZTBkZS01YmU4LTQ0YmQtYjhmZC02MjMzNTcyN2MyMDUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjE1YjhlMGRlLTViZTgtNDRiZC1iOGZkLTYyMzM1NzI3YzIwNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM1QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNUBhYnYuYmcifQ.jPjVNSyxsm3pigPfvQcnJZ2UJSBOC8MYCygx-Vo0u0PnhiXKpe99EQ1fBjeoQmn2z25bZhgmzWWpbQHGVbfh9TmyqOArh7LCzLbTPGLSHtsAgxlLdipuLV2NT0cwMb27isTthlPpkWfjQPNB9z2_Dy8qVOXP2RjeaMvIP-Uc-jMH2tdO1U64cl8fOVvjz6jX7rO1aveUdV2OQVUbmCm2IFtaR1RDKBeUgw-VSg9EdBOufXAyisVOKjTjKsyoNBO9fNAKQpUUDG6by4pRi_PJ_OVc4tJPT2ThJEcs1AIoA9J4CUQFA9ifPY88sFkZJQMrQdjsbQNb7kHJM6yGJqN21Q";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MzkxMzUsImlhdCI6MTcwODYzODgzNSwianRpIjoiNTEzYjhhMzAtYzkwNC00ODRkLTg4NTItMTdiMGJhZjc5ODRjIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmQ2ZjFmZDMtOTcyNi00NDViLTk3ZDYtNDI0ZDdkYzRmZThiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI1YzAxNTFhMy1jZDgyLTQ0NjEtYTdhOS03YmEwNjI0MTRhNDkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjVjMDE1MWEzLWNkODItNDQ2MS1hN2E5LTdiYTA2MjQxNGE0OSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM1QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzNUBhYnYuYmcifQ.g6thKtaKYgB7ji_-1EhvqOERkuckZqgdWNAAUsuPrTTbAnhRpxgosvnO1ZkQRz0wGu3gRvBi5XJ0WUSoggOgu3A1spNLCaCBL67EdoUElGaby_oPWlviQqvOk3__Pqb7aqNXxFxPiLD49FgXZNca71UMBqsAqieBxBXZ5E3dVmC6d5PLph1UuDSRtY2_wlYsFff-hSGdl_XHVmRvnWxTmXnANV905CXJlYa7sUqD8WaJsACWFZ7KkLFqpuBBTppmhwf5z-SJerm4k734hUI-bXAQ4bGYAsxBGKuLALwabqFEc63xuh_YKaJup2fEk-qQjvz73oeo2c_EGjjdOnxJ-g";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -56,6 +56,7 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
+  const [showAskUserButton, setShowAskUserButton] = useState(false);
   const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
 
   const onShowSubscribe = () => setShowSubscribe(true);
@@ -102,6 +103,7 @@ function App() {
         console.error("Subscribe to push failed", e);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmitPush = async (e) => {
@@ -157,6 +159,39 @@ function App() {
     }
   };
 
+  const checkForUserPermissions = useCallback(async () => {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+      toast.error("Service worker and push manager not supported");
+      return;
+    }
+
+    toast.success("Service worker supported");
+
+    const registration = await navigator.serviceWorker.ready;
+
+    if (!registration) {
+      toast.error("Service worker registration failed");
+      return;
+    }
+
+    if (!registration.pushManager) {
+      toast.error("Push manager unavailable");
+      return;
+    }
+
+    toast.success("Push manager found");
+
+    const existingSubscription =
+      await registration.pushManager.getSubscription();
+
+    if (!existingSubscription) {
+      setShowAskUserButton(true);
+    } else {
+      await saveSubscription(existingSubscription);
+      toast.success("Successful subscription");
+    }
+  }, []);
+
   const onChange = useCallback(
     (setState) => (e) => {
       setState(e.target.value);
@@ -165,8 +200,8 @@ function App() {
   );
 
   useEffect(() => {
-    // onSubscribe();
-  }, [onSubscribe]);
+    checkForUserPermissions();
+  }, [checkForUserPermissions]);
 
   return (
     <div className="App">
@@ -188,13 +223,15 @@ function App() {
             >
               Subscribe
             </button>
-            <button
-              id="ask-user-permissions"
-              className={`tab ${showSubscribe ? "active" : ""}`}
-              onClick={onAskUserPermissions}
-            >
-              Ask user permissions
-            </button>
+            {showAskUserButton && (
+              <button
+                id="ask-user-permissions"
+                className={`tab`}
+                onClick={onAskUserPermissions}
+              >
+                Ask user permissions
+              </button>
+            )}
           </div>
           <div className={`tab-item`}>
             <button
