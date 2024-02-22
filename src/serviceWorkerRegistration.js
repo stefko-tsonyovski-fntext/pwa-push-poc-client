@@ -96,24 +96,14 @@ export function register(config) {
 
           toast.success("New subscription");
 
-          const result = await Notification.requestPermission();
+          const askUserPermissionsButton = document.getElementById(
+            "ask-user-permissions"
+          );
 
-          if (result === "granted") {
-            toast.success("Access granted");
-
-            const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-            const subscription = await registration.pushManager.subscribe({
-              applicationServerKey: convertedVapidKey,
-              userVisibleOnly: true,
-            });
-
-            toast.success("Subscribed to service worker");
-
-            await saveSubscription(subscription);
-            toast.success("Successful subscription");
+          if (askUserPermissionsButton) {
+            askUserPermissionsButton.click();
           } else {
-            toast.error("Access not granted");
+            toast.error("Ask user permissions not found");
           }
         } catch (error) {
           toast.error("Subscription not successful: " + JSON.stringify(error));
