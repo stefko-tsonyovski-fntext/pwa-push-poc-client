@@ -67,6 +67,7 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      console.log("First");
       toast.success("Register");
 
       registration.onupdatefound = () => {
