@@ -1,10 +1,8 @@
-import React from "react";
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import TextInput from "./components/Input/TextInput";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { useServiceWorker } from "./useServiceWorker";
 
 // in PROD use from .env
@@ -14,7 +12,7 @@ export const PUBLIC_KEY =
 export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg1OTYzMTksImlhdCI6MTcwODU5NjAxOSwianRpIjoiNmQxMjdiMDMtOTQwOC00ZmYzLWFiZTktZTYxOGJlYWJmOGQ2IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJiYmI2YWZiYi01NzJjLTQ5MzItYjY1Mi1hMGMyZWIwNGE4YzgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiYjZhZmJiLTU3MmMtNDkzMi1iNjUyLWEwYzJlYjA0YThjOCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.ft46CzofWHgD48fzENz4gzhqMCdHzpOzOczxqJrk2fCi_j5Gj92CqldNMevvZyZnIpa6_QrNMHAW-J26EXBd3qX0D1obNT60B1PDDW6bsQYtEni_3K45Blru7xSP54o8_ZubjeX7k0SNa7gm5E97mbLhU068QNlufsYRswJ3urAJQ49RCUc6lTuab6cn-RlwiXjjp2zr3CF2S11REtBB5OGgm13yKPNaouQ5LdO2nt6PwLUO88Gzl2jdnFr2RQvINFDAppdY-6Qt6RXNMlaQqLQ3k8dzsM6Qxel28vQnNqGi2t9cRwWeOtikViRZ-CU3ipldSx1lEuiyGXPF6VSNKA";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg2MDIwOTgsImlhdCI6MTcwODYwMTc5OCwianRpIjoiODcxMGRhNWEtZGU2OS00NDEwLTk3MDgtM2RlMDNjMzllNDIxIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTM4NzNlMTktYjYyYi00ZTQ5LTg1NDQtY2FkM2ZlMjU5MzczIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI2ZTgwMDk4Yi1lMzI3LTQ5MWMtYTM1My0xOWQ2MDdmODA1ZmYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjZlODAwOThiLWUzMjctNDkxYy1hMzUzLTE5ZDYwN2Y4MDVmZiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMzQGFidi5iZyIsImVtYWlsIjoiYXNzZXRzM0BhYnYuYmcifQ.dtGzvIyQFYxDhqDp1ZSI5pFxoKxtL-fg2RQyhkecv5u6l2iIKiRbFNBNTp5bJicfnEGC16-p7MKZ5i6J28j8M4CbhrCOM2hHACJd6GF49YE95tay8iZTASlg4bIoF1ogMwG9IOA_gjJ9erl6NfyEz0r0vpwGhN3hW1uG0hQd82H5WqWteEvgkykqXh0yT82IL7OKv_Ca4pc2hW5ni1UAd0skzfco2HFK_bbGsMIUuK3oYVpFWueVFotcTxJnbRIpGYpTvgWqVwSg9AUpW2Eptn28v7MNZ86TLRfNz5ca8wysIXj4oa5trHJ6v2hXpjaG-egyg3DGDV7quoFoplsrwQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -37,25 +35,30 @@ export const notificationsSupported = () =>
 
 export const subscribe = async () => {
   toast.success("Subcribe start...");
-  const swRegistration = await navigator.serviceWorker.ready;
-  toast.success("Sw registration...");
-  await window?.Notification.requestPermission();
-  toast.success("Notifications permission...");
 
-  try {
-    const options = {
-      applicationServerKey: PUBLIC_KEY,
-      userVisibleOnly: true,
-    };
+  if ("serviceWorker" in navigator) {
+    const swRegistration = await navigator.serviceWorker.ready;
+    toast.success("Sw registration: " + JSON.stringify(swRegistration));
+    await window?.Notification.requestPermission();
+    toast.success("Notifications permission...");
 
-    const subscription = await swRegistration.pushManager.subscribe(options);
-    toast.success("Handle subscription...");
+    try {
+      const options = {
+        applicationServerKey: PUBLIC_KEY,
+        userVisibleOnly: true,
+      };
 
-    await saveSubscription(subscription);
-    toast.success("Store subscription...");
-  } catch (err) {
-    console.error(err);
-    toast.error("Error during subscription: " + JSON.stringify(err));
+      const subscription = await swRegistration.pushManager.subscribe(options);
+      toast.success("Handle subscription...");
+
+      await saveSubscription(subscription);
+      toast.success("Store subscription...");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error during subscription: " + JSON.stringify(err));
+    }
+  } else {
+    toast.error("Service workers are not supported.");
   }
 };
 
