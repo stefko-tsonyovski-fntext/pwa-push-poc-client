@@ -61,6 +61,18 @@ export function register(config) {
 
         navigator.serviceWorker.ready
           .then(function (registration) {
+            Notification.requestPermission().then((result) => {
+              if (result === "granted") {
+                try {
+                  toast.success("Permission granted...");
+                } catch (err) {
+                  toast.error(
+                    "Error granting permissions: " + JSON.stringify(err)
+                  );
+                }
+              }
+            });
+
             // Use the PushManager to get the user's subscription to the push service.
             return registration.pushManager
               .getSubscription()
