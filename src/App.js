@@ -103,7 +103,9 @@ function App() {
     }
   };
 
-  const onSubscribe = useCallback(async () => {
+  const onSubscribe = useCallback(async (e) => {
+    e.preventDefault();
+
     if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
       toast.error("Service worker and push manager not supported");
       return;
