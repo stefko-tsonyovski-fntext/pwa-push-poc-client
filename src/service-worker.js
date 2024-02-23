@@ -12,7 +12,6 @@ import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
-import createPrompt from "prompt-sync";
 
 clientsClaim();
 
@@ -75,9 +74,6 @@ self.addEventListener("message", (event) => {
 self.addEventListener("push", function (event) {
   const data = event.data.json();
   console.log(event.data, event.data.json());
-  const prompt = createPrompt();
-  const result = prompt("What is your favorite number: ");
-  console.log(result);
   const options = {
     body: data.message,
     icon: "favicon.ico",
