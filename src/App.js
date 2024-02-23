@@ -219,7 +219,7 @@ function App() {
   );
 
   useEffect(() => {
-    checkForUserPermissions();
+    // checkForUserPermissions();
   }, [checkForUserPermissions]);
 
   return (
