@@ -68,7 +68,7 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
-  const { getSubscription } = useSubscribe();
+  const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
 
   const onShowSubscribe = () => setShowSubscribe(true);
 
