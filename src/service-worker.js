@@ -1,3 +1,5 @@
+importScripts("https://progressier.app/KxlEPJ8Cu1kv0ld9HsZW/sw.js");
+
 /* eslint-disable no-restricted-globals */
 
 // This service worker can be customized!
@@ -79,10 +81,6 @@ self.addEventListener("push", function (event) {
     icon: "favicon.ico",
     vibrate: [100, 50, 100],
   };
-
-  self.registration.showNotification("Push Event Received", {
-    body: "Check console for details.",
-  });
 
   event.waitUntil(self.registration.showNotification("data.title", options));
 });
