@@ -1,7 +1,3 @@
-if ("undefined" === typeof window) {
-  importScripts("https://progressier.app/KxlEPJ8Cu1kv0ld9HsZW/sw.js");
-}
-
 /* eslint-disable no-restricted-globals */
 
 // This service worker can be customized!
