@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import TextInput from "./components/Input/TextInput";
-import { useSubscribe } from "./useSubscribe";
 
 // in PROD use from .env
 export const PUBLIC_KEY =
@@ -68,8 +67,6 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
-  const [showAskUserButton, setShowAskUserButton] = useState(false);
-  const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
 
   const onShowSubscribe = () => setShowSubscribe(true);
 
@@ -77,57 +74,16 @@ function App() {
     setShowSubscribe(false);
   };
 
-  const onSubscribe = useCallback(async () => {
-    try {
-      toast.success("Subscribe in progress...");
-
-      await window?.Notification.requestPermission();
-      toast.success("Notification permission granted...");
-
-      const subscription = await getSubscription();
-      toast.success("Subscription acquired...");
-
-      await saveSubscription(subscription);
-
-      toast.success("Subscribed successfully...");
-      console.log("Subscribed successfully");
-    } catch (e) {
-      if (e.errorCode === "ExistingSubscription") {
-        toast.success("Existing subscription block...");
-        const registration = await navigator.serviceWorker.ready;
-
-        const existingSubscription =
-          await registration.pushManager.getSubscription();
-
-        console.log(
-          "Existing subscription",
-          e,
-          existingSubscription.toJSON(),
-          existingSubscription.subscriptionId
-        );
-
-        await saveSubscription(existingSubscription);
-
-        toast.success("Subscribed successfully...");
-        console.log("Subscribed successfully");
-      } else {
-        toast.error("Subscribe to push failed: " + JSON.stringify(e));
-        console.error("Subscribe to push failed", e);
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const onSubmitPush = async (e) => {
     e.preventDefault();
     setLoadingPush(true);
 
     try {
       const sendPayload = {
-        message: JSON.stringify({
-          title: "Miroslab",
-          message: "Miroslabbbbbb",
-        }),
+        // message: JSON.stringify({
+        //   title: "Miroslab",
+        //   message: "Miroslabbbbbb",
+        // }),
         userId: "1",
         title: "Miroslab",
         message: "Miroslabbbbbb",
@@ -147,38 +103,7 @@ function App() {
     }
   };
 
-  const onAskUserPermissions = async () => {
-    const result = await Notification.requestPermission();
-    toast.success("Ask user for permissions: " + result);
-
-    if (result === "granted") {
-      toast.success("Access granted");
-
-      const registration = await navigator.serviceWorker.ready;
-
-      if (registration) {
-        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-        const subscription = await registration.pushManager.subscribe({
-          applicationServerKey: convertedVapidKey,
-          userVisibleOnly: true,
-        });
-
-        toast.success("Subscribed to service worker");
-
-        await saveSubscription(subscription);
-        setShowAskUserButton(false);
-
-        toast.success("Successful subscription");
-      } else {
-        toast.error("Service worker registration not found");
-      }
-    } else {
-      toast.error("Access not granted");
-    }
-  };
-
-  const checkForUserPermissions = useCallback(async () => {
+  const onSubscribe = useCallback(async () => {
     if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
       toast.error("Service worker and push manager not supported");
       return;
@@ -204,10 +129,22 @@ function App() {
       await registration.pushManager.getSubscription();
 
     if (!existingSubscription) {
-      setShowAskUserButton(true);
-    } else {
-      await saveSubscription(existingSubscription);
-      toast.success("Successful subscription");
+      const registration = await navigator.serviceWorker.ready;
+
+      if (registration) {
+        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+        const subscription = await registration.pushManager.subscribe({
+          applicationServerKey: convertedVapidKey,
+          userVisibleOnly: true,
+        });
+
+        toast.success("Subscribed to service worker");
+
+        await saveSubscription(subscription);
+
+        toast.success("Successful subscription");
+      }
     }
   }, []);
 
@@ -217,10 +154,6 @@ function App() {
     },
     []
   );
-
-  useEffect(() => {
-    // checkForUserPermissions();
-  }, [checkForUserPermissions]);
 
   return (
     <div className="App">
@@ -242,15 +175,6 @@ function App() {
             >
               Subscribe
             </button>
-            {showAskUserButton && (
-              <button
-                id="ask-user-permissions"
-                className={`tab`}
-                onClick={onAskUserPermissions}
-              >
-                Ask user permissions
-              </button>
-            )}
           </div>
           <div className={`tab-item`}>
             <button
