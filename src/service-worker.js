@@ -80,5 +80,9 @@ self.addEventListener("push", function (event) {
     vibrate: [100, 50, 100],
   };
 
+  self.registration.showNotification("Push Event Received", {
+    body: "Check console for details.",
+  });
+
   event.waitUntil(self.registration.showNotification(data.title, options));
 });
