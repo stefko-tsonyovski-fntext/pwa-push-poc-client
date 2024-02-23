@@ -56,6 +56,7 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
+  const [showAskUserButton, setShowAskUserButton] = useState(false);
   const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
 
   const onShowSubscribe = () => setShowSubscribe(true);
@@ -102,6 +103,7 @@ function App() {
         console.error("Subscribe to push failed", e);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmitPush = async (e) => {
@@ -128,6 +130,70 @@ function App() {
     }
   };
 
+  const onAskUserPermissions = async () => {
+    const result = await Notification.requestPermission();
+    toast.success("Ask user for permissions: " + result);
+
+    if (result === "granted") {
+      toast.success("Access granted");
+
+      const registration = await navigator.serviceWorker.ready;
+
+      if (registration) {
+        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+        const subscription = await registration.pushManager.subscribe({
+          applicationServerKey: convertedVapidKey,
+          userVisibleOnly: true,
+        });
+
+        toast.success("Subscribed to service worker");
+
+        await saveSubscription(subscription);
+        setShowAskUserButton(false);
+
+        toast.success("Successful subscription");
+      } else {
+        toast.error("Service worker registration not found");
+      }
+    } else {
+      toast.error("Access not granted");
+    }
+  };
+
+  const checkForUserPermissions = useCallback(async () => {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+      toast.error("Service worker and push manager not supported");
+      return;
+    }
+
+    toast.success("Service worker supported");
+
+    const registration = await navigator.serviceWorker.ready;
+
+    if (!registration) {
+      toast.error("Service worker registration failed");
+      return;
+    }
+
+    if (!registration.pushManager) {
+      toast.error("Push manager unavailable");
+      return;
+    }
+
+    toast.success("Push manager found");
+
+    const existingSubscription =
+      await registration.pushManager.getSubscription();
+
+    if (!existingSubscription) {
+      setShowAskUserButton(true);
+    } else {
+      await saveSubscription(existingSubscription);
+      toast.success("Successful subscription");
+    }
+  }, []);
+
   const onChange = useCallback(
     (setState) => (e) => {
       setState(e.target.value);
@@ -136,8 +202,8 @@ function App() {
   );
 
   useEffect(() => {
-    // onSubscribe();
-  }, [onSubscribe]);
+    checkForUserPermissions();
+  }, [checkForUserPermissions]);
 
   return (
     <div className="App">
@@ -159,6 +225,15 @@ function App() {
             >
               Subscribe
             </button>
+            {showAskUserButton && (
+              <button
+                id="ask-user-permissions"
+                className={`tab`}
+                onClick={onAskUserPermissions}
+              >
+                Ask user permissions
+              </button>
+            )}
           </div>
           <div className={`tab-item`}>
             <button

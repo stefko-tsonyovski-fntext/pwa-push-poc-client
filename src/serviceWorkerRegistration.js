@@ -57,60 +57,8 @@ export function register(config) {
           );
         });
       } else {
-        try {
-          // Is not localhost. Just register service worker
-          await registerValidSW(swUrl, config);
-
-          if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-            toast.error("Service worker and push manager not supported");
-            return;
-          }
-
-          toast.success("Service worker supported");
-
-          const registration = await navigator.serviceWorker.ready;
-          console.log(registration);
-          if (!registration) {
-            toast.error("Service worker registration failed");
-            return;
-          }
-
-          if (!registration.pushManager) {
-            toast.error("Push manager unavailable");
-            return;
-          }
-
-          toast.success("Push manager found");
-
-          const existingSubscription =
-            await registration.pushManager.getSubscription();
-
-          if (existingSubscription) {
-            toast.error("Subscription exists");
-
-            await saveSubscription(existingSubscription);
-            toast.success("Successful subscription");
-
-            return;
-          }
-
-          toast.success("New subscription");
-
-          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-          const subscription = await registration.pushManager.subscribe({
-            applicationServerKey: convertedVapidKey,
-            userVisibleOnly: true,
-          });
-
-          toast.success("Subscribed to service worker");
-
-          await saveSubscription(subscription);
-          toast.success("Successful subscription");
-        } catch (error) {
-          toast.error("Subscription not successful: " + JSON.stringify(error));
-          console.error(error);
-        }
+        // Is not localhost. Just register service worker
+        await registerValidSW(swUrl, config);
       }
     });
   }
