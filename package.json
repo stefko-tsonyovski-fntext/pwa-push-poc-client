@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^4.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.5.0",
+    "prompt-sync": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-pwa-push-notifications": "1.0.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.6.0",
@@ -21,11 +26,7 @@
     "workbox-range-requests": "^6.6.0",
     "workbox-routing": "^6.6.0",
     "workbox-strategies": "^6.6.0",
-    "workbox-streams": "^6.6.0",
-    "react-pwa-push-notifications": "1.0.0",
-    "@fingerprintjs/fingerprintjs": "^4.1.0",
-    "axios": "^1.5.0",
-    "react-hot-toast": "^2.4.1"
+    "workbox-streams": "^6.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
