@@ -30,9 +30,13 @@ export const urlBase64ToUint8Array = (base64String) => {
 };
 
 export const saveSubscription = async (subscription) => {
+  // const headers = {
+  //   "Content-Type": "application/json",
+  //   Authorization: `Bearer ${accessToken}`,
+  // };
+
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${accessToken}`,
   };
 
   const payload = {
@@ -52,6 +56,7 @@ export const saveSubscription = async (subscription) => {
 
   await fetch(BACKEND_URL + "/notifications/subscribe", {
     method: "POST",
+    headers,
     body,
   });
 };
