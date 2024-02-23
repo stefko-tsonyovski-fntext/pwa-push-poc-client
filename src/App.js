@@ -112,6 +112,7 @@ function App() {
     toast.success("Service worker supported");
 
     const registration = await navigator.serviceWorker.ready;
+    console.log("Registration", registration);
 
     if (!registration) {
       toast.error("Service worker registration failed");
@@ -127,6 +128,7 @@ function App() {
 
     const existingSubscription =
       await registration.pushManager.getSubscription();
+    console.log("Existing subscription", existingSubscription);
 
     if (!existingSubscription) {
       const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
@@ -135,6 +137,7 @@ function App() {
         applicationServerKey: convertedVapidKey,
         userVisibleOnly: true,
       });
+      console.log("Subscription", subscription);
 
       toast.success("Subscribed to service worker");
 
