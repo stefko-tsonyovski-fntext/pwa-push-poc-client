@@ -1,4 +1,6 @@
-importScripts("https://progressier.app/KxlEPJ8Cu1kv0ld9HsZW/sw.js");
+if ("function" === typeof importScripts) {
+  importScripts("https://progressier.app/KxlEPJ8Cu1kv0ld9HsZW/sw.js");
+}
 
 /* eslint-disable no-restricted-globals */
 
