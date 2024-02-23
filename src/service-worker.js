@@ -12,7 +12,6 @@ import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
-import { BACKEND_URL } from "./App";
 
 clientsClaim();
 
@@ -72,44 +71,18 @@ self.addEventListener("message", (event) => {
 });
 
 // Any other custom service worker logic can go here.
-self.addEventListener("push", async function (event) {
-  const data = event.data.json();
-  console.log(event.data, event.data.json());
+self.addEventListener("push", function (event) {
+  // const data = event.data.json();
+  // console.log(event.data, event.data.json());
   const options = {
-    body: data.message,
+    body: "data.message",
     icon: "favicon.ico",
     vibrate: [100, 50, 100],
   };
 
-  // const headers = {
-  //   "Content-Type": "application/json",
-  //   Authorization: `Bearer ${accessToken}`,
-  // };
-
-  const headers = {
-    "Content-Type": "application/json",
-  };
-
-  const payload = {
-    endpoint: "subscription.endpoint",
-    p256dh: "subscription.toJSON().keys.p256dh",
-    auth: "subscription.toJSON().keys.auth",
-    userId: "12",
-  };
-
-  const body = JSON.stringify(payload);
-
-  // await fetch(BACKEND_URL + "/users/notifications/subscribe", {
-  //   method: "POST",
-  //   headers,
-  //   body,
-  // });
-
-  await fetch(BACKEND_URL + "/notifications/subscribe", {
-    method: "POST",
-    headers,
-    body,
+  self.registration.showNotification("Push Event Received", {
+    body: "Check console for details.",
   });
 
-  event.waitUntil(self.registration.showNotification(data.title, options));
+  event.waitUntil(self.registration.showNotification("data.title", options));
 });
