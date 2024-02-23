@@ -129,22 +129,18 @@ function App() {
       await registration.pushManager.getSubscription();
 
     if (!existingSubscription) {
-      const registration = await navigator.serviceWorker.ready;
+      const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
-      if (registration) {
-        const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+      const subscription = await registration.pushManager.subscribe({
+        applicationServerKey: convertedVapidKey,
+        userVisibleOnly: true,
+      });
 
-        const subscription = await registration.pushManager.subscribe({
-          applicationServerKey: convertedVapidKey,
-          userVisibleOnly: true,
-        });
+      toast.success("Subscribed to service worker");
 
-        toast.success("Subscribed to service worker");
+      await saveSubscription(subscription);
 
-        await saveSubscription(subscription);
-
-        toast.success("Successful subscription");
-      }
+      toast.success("Successful subscription");
     }
   }, []);
 
