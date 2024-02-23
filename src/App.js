@@ -3,6 +3,7 @@ import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import TextInput from "./components/Input/TextInput";
+import { useSubscribe } from "react-pwa-push-notifications";
 
 // in PROD use from .env
 export const PUBLIC_KEY =
@@ -67,6 +68,7 @@ function App() {
   const [message, setMessage] = useState("World");
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
+  const { getSubscription } = useSubscribe();
 
   const onShowSubscribe = () => setShowSubscribe(true);
 
@@ -103,51 +105,53 @@ function App() {
     }
   };
 
-  const onSubscribe = useCallback(async (e) => {
-    e.preventDefault();
+  const onSubscribe = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setLoadingSubscribe(true);
+      try {
+        const subscription = await getSubscription();
 
-    if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-      toast.error("Service worker and push manager not supported");
-      return;
-    }
+        toast.success("Subscription acquired");
+        console.log(subscription.toJSON());
 
-    toast.success("Service worker supported");
+        await axios.post(BACKEND_URL + "/notifications/subscribe", {
+          userId: "1",
+          endpoint: subscription.endpoint,
+          p256dh: subscription.toJSON().keys.p256dh,
+          auth: subscription.toJSON().keys.auth,
+        });
 
-    const registration = await navigator.serviceWorker.ready;
-    console.log("Registration", registration);
+        toast.success("Subscribe success");
+      } catch (e) {
+        if (e.errorCode === "ExistingSubscription") {
+          const registration = await navigator.serviceWorker.ready;
+          const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
-    if (!registration) {
-      toast.error("Service worker registration failed");
-      return;
-    }
+          const existingSubscription = await registration.pushManager.subscribe(
+            {
+              applicationServerKey: convertedVapidKey,
+              userVisibleOnly: true,
+            }
+          );
 
-    if (!registration.pushManager) {
-      toast.error("Push manager unavailable");
-      return;
-    }
+          console.log(
+            e,
+            existingSubscription.toJSON(),
+            existingSubscription.subscriptionId
+          );
 
-    toast.success("Push manager found");
-
-    const existingSubscription =
-      await registration.pushManager.getSubscription();
-    console.log("Existing subscription", existingSubscription);
-
-    if (!existingSubscription) {
-      const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
-      const subscription = await registration.pushManager.subscribe({
-        applicationServerKey: convertedVapidKey,
-        userVisibleOnly: true,
-      });
-      console.log("Subscription", subscription);
-
-      toast.success("Subscribed to service worker");
-
-      await saveSubscription(subscription);
-
-      toast.success("Successful subscription");
-    }
-  }, []);
+          toast.success("Existing subscription");
+        } else {
+          console.warn(e);
+          toast.error("Something went wrong");
+        }
+      } finally {
+        setLoadingSubscribe(false);
+      }
+    },
+    [getSubscription]
+  );
 
   const onChange = useCallback(
     (setState) => (e) => {
