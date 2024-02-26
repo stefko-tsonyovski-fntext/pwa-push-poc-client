@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTQzMDgsImlhdCI6MTcwODk1NDAwOCwianRpIjoiYzRjODRiMmYtZTM0NC00NjU1LTk2NGYtMDYwNDI1YjNhMTM5IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI4OWFlMGU0OS1mNTg2LTQyMjYtODI0Yy01MDI0ZjMwZTIzNjUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6Ijg5YWUwZTQ5LWY1ODYtNDIyNi04MjRjLTUwMjRmMzBlMjM2NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.H92pHQ8RxdVUvs8fZcgFrHNc4q4yErtuPE4MkqJ29j25r-_6I3fNqZIYPsTnW4_O3W-Zd31vxO02zeqaPN_ySjtxtpKLPHwXvfF99zbNYPahrBO-hSFYhOFp7-F7MJZ0W5HT1IBmcJrrQumjekcuGKhgB9_5hFBBSvzxF2U08RjXsWwVSX3Am0DASqyhGej-PlCos4hMCDhqJoTSHgefbk93N5qEDTcWJRS79tCqXwHd56AcdWDOhISJ-08uOf-55PtKketgZgtjZ3PnI4SrTo2BOGUWGgIaJfdRCZta6akXXELzcukXhegxoSCK0FHyqnZwYXfbiWOzytQXYu3nmA";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTUyNTksImlhdCI6MTcwODk1NDk1OSwianRpIjoiYjRkY2Y3MjYtYjE4NC00MTA0LWJlOGYtNmZiM2FkODEzNTQwIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJiNzA1ZDRlOS1hZmU3LTRlMTgtYjE0MC0zOTgyMGMxMjk4M2YiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImI3MDVkNGU5LWFmZTctNGUxOC1iMTQwLTM5ODIwYzEyOTgzZiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.hA10Jbl5NrQ5naPVi9Di0Fix-XS7zHN1vgxQzKiDM1mPx7ljC_NxBwC5LDDmxjgzWGFOa5OB7jiRoEYej3o9ZLtFy8RzlxTbeZG5w40j6Ml5dUWKAQtTi3DAPiXpjOozN8iDHseJVyYts_MdsPIgo7bxCnEJrWcbaSF8ncg4dT2au5z1i7z_7JUz5QOsb_FxJIlmKHwIPwOassP8oYiRcwIxN5PdwtMaqh2Bv99tdiM7sdoSpGqlWtbI5XBxE9HoSnzviGgFMkajEY0RteWXgQQFgi1gyirijOnuer-xFXTlBEKU-4fsEGZjYvaB3F5i1FGnEtWCtDjjPgcHpGzxSQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -50,20 +50,20 @@ function App() {
 
     try {
       const sendPayload = {
-        // message: JSON.stringify({
-        //   title: "Miroslab",
-        //   message: "Miroslabbbbbb",
-        // }),
-        userId: "1",
-        title: "Miroslab",
-        message: "Miroslabbbbbb",
+        message: JSON.stringify({
+          title: "Miroslab",
+          message: "Miroslabbbbbb",
+        }),
+        // userId: "1",
+        // title: "Miroslab",
+        // message: "Miroslabbbbbb",
       };
 
-      // await axios.post(BACKEND_URL + "/users/notifications/send", sendPayload, {
-      //   headers: { Authorization: `Bearer ${accessToken}` },
-      // });
+      await axios.post(BACKEND_URL + "/users/notifications/send", sendPayload, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
 
-      await axios.post(BACKEND_URL + "/notifications/send", sendPayload);
+      // await axios.post(BACKEND_URL + "/notifications/send", sendPayload);
 
       toast.success("Push success");
     } catch (e) {
@@ -83,22 +83,22 @@ function App() {
         toast.success("Subscription acquired");
         console.log(subscription.toJSON());
 
-        await axios.post(BACKEND_URL + "/notifications/subscribe", {
-          userId: "1",
-          endpoint: subscription.endpoint,
-          p256dh: subscription.toJSON().keys.p256dh,
-          auth: subscription.toJSON().keys.auth,
-        });
+        // await axios.post(BACKEND_URL + "/notifications/subscribe", {
+        //   userId: "1",
+        //   endpoint: subscription.endpoint,
+        //   p256dh: subscription.toJSON().keys.p256dh,
+        //   auth: subscription.toJSON().keys.auth,
+        // });
 
-        // await axios.post(
-        //   BACKEND_URL + "/users/notifications/subscribe",
-        //   {
-        //     endpoint: subscription.endpoint,
-        //     p256dh: subscription.toJSON().keys.p256dh,
-        //     auth: subscription.toJSON().keys.auth,
-        //   },
-        //   { headers: { Authorization: `Bearer ${accessToken}` } }
-        // );
+        await axios.post(
+          BACKEND_URL + "/users/notifications/subscribe",
+          {
+            endpoint: subscription.endpoint,
+            p256dh: subscription.toJSON().keys.p256dh,
+            auth: subscription.toJSON().keys.auth,
+          },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
 
         toast.success("Subscribe success");
       } catch (e) {
@@ -119,15 +119,15 @@ function App() {
             existingSubscription.subscriptionId
           );
 
-          // await axios.post(
-          //   BACKEND_URL + "/users/notifications/subscribe",
-          //   {
-          //     endpoint: existingSubscription.endpoint,
-          //     p256dh: existingSubscription.toJSON().keys.p256dh,
-          //     auth: existingSubscription.toJSON().keys.auth,
-          //   },
-          //   { headers: { Authorization: `Bearer ${accessToken}` } }
-          // );
+          await axios.post(
+            BACKEND_URL + "/users/notifications/subscribe",
+            {
+              endpoint: existingSubscription.endpoint,
+              p256dh: existingSubscription.toJSON().keys.p256dh,
+              auth: existingSubscription.toJSON().keys.auth,
+            },
+            { headers: { Authorization: `Bearer ${accessToken}` } }
+          );
 
           toast.success("Existing subscription");
         } else {
@@ -153,7 +153,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title">Use as PWA</div>
+            <div className="title">Use as PWA 2</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
@@ -213,7 +213,7 @@ function App() {
                 className={loadingSubscribe ? "loading" : ""}
                 type="submit"
               >
-                Send
+                Send Subscription
               </button>
             </form>
           </div>
