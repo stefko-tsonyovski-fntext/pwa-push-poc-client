@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTkwNjMsImlhdCI6MTcwODk1ODc2MywianRpIjoiOTA0YTFkNDYtYTI1Yy00N2M0LWEwOWUtZjcyYjQzY2EwMzU3IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJjM2MyNjU3OC0wNmVjLTRkZmQtOGY3My0yNzAwZGExMjBjYTkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImMzYzI2NTc4LTA2ZWMtNGRmZC04ZjczLTI3MDBkYTEyMGNhOSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.QsNHEH-ld_16XHH7EBDfmKAMVZ81XOieQDFyiBoc9OZhIwWtwBdtjPry-4RAjAGujxIaK3pf88FJr86vMEgiqlcD29tvRRbMHo7IYFQkOBbVD7tPKvePbGCPNrbO7v_2mt49XwYOvS1GCO1ypP-I8i4X-X6OWnHcBbxdAdHyEQDn03W0ZBfAQNMnDAoHDDFBg1HLrmftPvd3zFrKNZmod_-e7VzaCj6PVLTiDypTPjXSdbX2Zhb8S0YHKo5cbGP6J2gRmryNZhwS-tvoc_dOHMo5uoBqPK-GiBHhIhwkySevXpKtXxceZ7N2Sxi3R2tUeOTmU_ooBvO4ZLOXP5jT1A";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTk1MzUsImlhdCI6MTcwODk1OTIzNSwianRpIjoiNjgyMDQxNTUtOTgxMy00YzFjLTg1NzUtZDg4MmMzOGJhMjU4IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIyZjc1MTE0Yy03YjU3LTQ3YWMtYmM2YS0zOGQxZTA1MGU4ZWYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjJmNzUxMTRjLTdiNTctNDdhYy1iYzZhLTM4ZDFlMDUwZThlZiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.vGQzZcDUx5aWZnOtcN3RJ-O_qkG_6orFWk7S8mAYWXvbfyeSYlqHH_MQZKGOxlwhFmqMTQaLGlUnAVbUMq7Wt2wQTK-DY4fom7vFTpYtuvMsDUd_iAvzYwDjsjZxlFRglyudINKAzjGpe3qIwRqCT4YNk84yZxwBf_goisl_jL72D0XoHa_dPdAU93e1gZ2PowXq79HS0OEXgLt73xET5jp1C4DhKWRAH6VYHcCaz1no2ZWI6Yj1A_A6eJCnXcSeYz1hG4gvQXxmuRG5YnL-Bua_wj2xZtMlYigqAH1WJz0f6u4yfumRMiWFbl2leIUhpdGotuQrEDxCEdFgQt48IA";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -37,6 +37,7 @@ function App() {
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
   const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
+  const [subscriptionData, setSubscriptionData] = useState("");
 
   const onShowSubscribe = () => setShowSubscribe(true);
 
@@ -79,6 +80,7 @@ function App() {
 
       toast.success("Subscription acquired");
       console.log(subscription.toJSON());
+      setSubscriptionData(subscription.toJSON());
 
       // await axios.post(BACKEND_URL + "/notifications/subscribe", {
       //   userId: "1",
@@ -150,6 +152,7 @@ function App() {
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
+              {subscriptionData}
             </div>
           </div>
         </div>
