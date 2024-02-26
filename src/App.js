@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTc3MzQsImlhdCI6MTcwODk1NzQzNCwianRpIjoiMTI2MGY3ZmEtZDAyZC00NDA1LTljYjgtNjJhNTcyZTAxMzUxIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJlNTY5YjEyNy0zNDUwLTQ0MjYtYmQ2ZS04M2NiYmZkMmFhYTEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImU1NjliMTI3LTM0NTAtNDQyNi1iZDZlLTgzY2JiZmQyYWFhMSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.IethTr07vyXLm8y_k6cLYsiOjjiHBat0JirkQqMXp9RLM7RxwqrLzgA7TubAIDolefXikBmsWTYAvIDOpVOniziv1X0JReoXN5ValnUfET6bOecNYP1qH0Ld_bxd3HlHAMN_gw9b51gdAjS224uOQSL8immAkl_PFX7E1hH1SZZJCn1YbsrU4X3Dyux9NDoN39WkJud1iwuFxqmCheRk5CuIo-FQcPWL3E31hhl757bPt5aioiT8G3qT4VblIBCPdt09rPhrIEyZe1igcwiUp_KpPXa2c99WypYpXTnda_2iI1K93RkbRJ6le1KJHSPoQwjSeF8mgthKsL5sgjvjYA";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTgxOTQsImlhdCI6MTcwODk1Nzg5NCwianRpIjoiNTVmZjk1OGQtYTQ5My00NGE3LWExODMtY2Y0MzViZDJlYzViIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIwM2VhMDc3Zi02YTcxLTQ0NzktYjFkMS00ODRlZTE0YjlhN2UiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjAzZWEwNzdmLTZhNzEtNDQ3OS1iMWQxLTQ4NGVlMTRiOWE3ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.pmuUQB0sv1wRETBhN-ecCKxkKAs1mERNJAXRFErYeHqVGc0ZHLDX0APa2aUhDPEWLHJpmL4UIGm-U7ZWkWoul3JvjPSRbpAfglpFwjuDnNbAe3PEUlNDSQSUIA7Xs4Hk3JLqVCq9Vpf5QEXxoKvlJlCh_C8Ktw5X0vnk_iivMR2owZB5QqEYXYIZulnpmWaLeo7Hgr86rLd1942Zt68uQb8OL83GNYjC-6MT_oJR7k85gjeRf5ApPf4qtKIytzUvCAhh5kL3J4wjL6jpO41lMa3HwynmSHpWG_4VC31V0xqcldEJb2M6pC_um5_LF8IRYQGZdQBE4uFOVKaNTFlkrQ";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -146,7 +146,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title">Use as PWA 7</div>
+            <div className="title">Use as PWA 8</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
@@ -173,30 +173,32 @@ function App() {
         </div>
         {!showSubscribe && (
           <div className="send">
-            <form onSubmit={onSubmitPush}>
-              <div className="title">Notification</div>
-              <TextInput
-                id="idSubscribe"
-                placeholder="id"
-                value={pushId}
-                onChange={onChange(setPushId)}
-              />
-              <TextInput
-                id="title"
-                placeholder="title"
-                value={title}
-                onChange={onChange(setTitle)}
-              />
-              <TextInput
-                id="message"
-                placeholder="message"
-                value={message}
-                onChange={onChange(setMessage)}
-              />
-              <button className={loadingPush ? "loading" : ""} type="submit">
-                Send
-              </button>
-            </form>
+            <div className="title">Notification</div>
+            <TextInput
+              id="idSubscribe"
+              placeholder="id"
+              value={pushId}
+              onChange={onChange(setPushId)}
+            />
+            <TextInput
+              id="title"
+              placeholder="title"
+              value={title}
+              onChange={onChange(setTitle)}
+            />
+            <TextInput
+              id="message"
+              placeholder="message"
+              value={message}
+              onChange={onChange(setMessage)}
+            />
+            <button
+              onClick={onSubmitPush}
+              className={loadingPush ? "loading" : ""}
+              type="submit"
+            >
+              Send
+            </button>
           </div>
         )}
         {showSubscribe && (
