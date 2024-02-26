@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTY5MzcsImlhdCI6MTcwODk1NjYzNywianRpIjoiNDk4YTQ3MTQtNGQ4Yy00Y2QzLWI5OWYtYzNhOTJkMzg5YjEwIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI5NmI1OTAxOS02NTQyLTQ1YjUtYTQzZi03MGMxZmE1ZTkwMjciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6Ijk2YjU5MDE5LTY1NDItNDViNS1hNDNmLTcwYzFmYTVlOTAyNyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.sEbYWc4z9ZN3jgcb7CIFb1HrAYLl3abh2S2Cf1V2hZqNHyxTodbyBLg5y2XvqZHnrDyNXNwBpK9-dwyqpqF0DNbMKT4_fOJiqyeMY1LxjEkuNUj-e3PmaZSn4ppM8coaaIsWeNUEJJ7VaGYKL43nf_kaAdylOPJX2yWSszXKMlx_cXplBL4PV3WOsWqu1Oef_WDpbEPSEMNVPQnOmPnxhHDPc3TZkonvLTDCrXUwsHYbe11gq54m6fvFLnJjQNJdRy-C6xylLdP5ZW6OLOmFxoSXLGme0PU7zLLmexA-_yxnF-JOwjWmXp0SPCM-HJjOr5Iy1_tYpDJKjfZzoyZ-Ng";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTc0MTgsImlhdCI6MTcwODk1NzExOCwianRpIjoiNDZiYTkwMmMtZTViMC00ODg3LWFjOWEtMDk2MzllNjhhNGEzIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiJiMzg1NzBmYS01YWMwLTQ5MjMtYmZjOS03ZDFiN2E4NmU1MzAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6ImIzODU3MGZhLTVhYzAtNDkyMy1iZmM5LTdkMWI3YTg2ZTUzMCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.Y18WHftR-brUzoRRcAeOJnPEJXKcDiCOR3InQxmTzL0ZSkzPKOYeRmim5LDu3viSgzFXCBX7uds3DRq73S4oIrgDRKTOE0gE23UFbmgMnB19bhMbe8l-YfVF98iW31ZqbfaG24LhiNphcHvOCaCLUB3JgCS6nNiO6LL5UBr1makKRrinO9XIDD9cygYv3KoHAoGVSWXJr7FXoylIRqsdUbYq2lb5-3LZmcWDkx-CoP8sqWLL9T7O-13B5XDO-xfxhUHesGPXXGOGFoVisniQHSkH1Rc1X4ObQ8_WkP0P8WcaGp95LOLk6FlBy7JTTepHIHGNlF4RyFA-IycD2su0_w";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -45,7 +45,6 @@ function App() {
   };
 
   const onSubmitPush = async (e) => {
-    e.preventDefault();
     setLoadingPush(true);
 
     try {
@@ -147,7 +146,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title">Use as PWA 5</div>
+            <div className="title">Use as PWA 6</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
