@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NjE1ODksImlhdCI6MTcwODk2MTI4OSwianRpIjoiZjVmZjA2ZDMtYTk0NS00Njk1LWE5ZWMtOThjZjgxODc1NGJkIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI2MjRkZTcxYS1jZmQ5LTQwOGMtODE1NS1mYTIwYTkzYmEwNmYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjYyNGRlNzFhLWNmZDktNDA4Yy04MTU1LWZhMjBhOTNiYTA2ZiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.qJSMyvz0YyiQ4EqUvl5HGKomCNso0NDInEFOW1msofHUiagOdRk07Oj7bdLo_ROZgAAKEmFxjuNGwav1dT1JCFvYmIBu2beMKn7XmZlt5659oSvsuZUiIg8Ek9u624FurjrrEZ7E7MD_LlGw8O2gyAemUS8HQ3QWDvoHQyVSC3zGXOMvXK2GiM-VqNon6otZXH-U9-bKr5dooLMK1ki-Y9vCa2T7jGJlsA_tjuDJC8MJw5S56JQQLmPU2bplxlLtTGSO-dz5cfgRCJ_qmddLO-yHNlcHyIuthTnxT_vdG9fDYUuHQo9lvTXfBtcudcaF76aI-iabBcOKCEo2NVWuxQ";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NjE4NjUsImlhdCI6MTcwODk2MTU2NSwianRpIjoiNDBkYWI5MGMtNjgzYS00NzU3LTlhZDEtOGJmNWY4ZGYzY2FkIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI5NmM4NmZjMy03OTc2LTRkNTUtYjYxNC03ZWNlNjI4NmQyZmEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6Ijk2Yzg2ZmMzLTc5NzYtNGQ1NS1iNjE0LTdlY2U2Mjg2ZDJmYSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.BJFC290xPre_G9mtVaJyYoWGlaB_VSr6ncOOjZdhOqOAzbdaED21leyqzed7EWNXe-TlBi0dcPrWtidL9EpO4hSOboIkJqh7Hr-1u4hvKo-kwGV8iIT8W_htJW_rulPo3EePHXRf6pgUt-Ecc4PAYIz5wam8GbZvXy0rMzTD1Mmw129KxzFQXZsxjCAsh1_Qiw33Zuz9NQei9gP4ABHJUCblFjae7Boh9VgUcRLOYocICeIAz0Zu-BgnH2zJR02FFWkSP3-_LyxzrQi5raxdl0EA_SaFqUcClNXJ-m0rOxJfZe3lAineeR4ISiU8eGfja3FtFuBOGlAHt08PH_dHSg";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -100,11 +100,12 @@ function App() {
 
       toast.success("Subscribe success");
     } catch (e) {
-      console.log("error");
       setError(e);
       if (e.errorCode === "ExistingSubscription") {
         const registration = await navigator.serviceWorker.ready;
         const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
+
+        toast.error("before subscribe");
 
         const existingSubscription = await registration.pushManager.subscribe({
           applicationServerKey: convertedVapidKey,
@@ -117,6 +118,7 @@ function App() {
           existingSubscription.subscriptionId
         );
 
+        toast.error("after subscribe");
         await axios.post(
           BACKEND_URL + "/users/notifications/subscribe",
           {
@@ -149,7 +151,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title">Use as PWA 4</div>
+            <div className="title">Use as PWA 5</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
