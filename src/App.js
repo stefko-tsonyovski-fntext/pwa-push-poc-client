@@ -99,7 +99,7 @@ function App() {
 
       toast.success("Subscribe success");
     } catch (e) {
-      toast.success("Subscription already existing");
+      toast.success(e.errorCode);
       if (e.errorCode === "ExistingSubscription") {
         const registration = await navigator.serviceWorker.ready;
         const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
