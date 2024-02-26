@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTk4NTYsImlhdCI6MTcwODk1OTU1NiwianRpIjoiNTg4MGJjNWYtZWNlNy00YTI1LWJjZTctOTgzYWZmMThhMGExIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI3ZGM4NjkzOS0xNjhkLTRmNjQtODkxYi1hNDIzNDg5ODkwYzEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjdkYzg2OTM5LTE2OGQtNGY2NC04OTFiLWE0MjM0ODk4OTBjMSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.GBkjnIn4c2AhYqeAX-ZbpdVE4_VNfg5fA59PvNrT2CxOVP9-DeRJk4oBFUcjcL06kotZq1bYAo8k3qmFCAir31FsHRr7A0MIZ-0eU0OSBSMYDppFv7qNH21zTR3Wj8BgiFf4iEgRaPtp-hxvXnL9lVm83tkdU0aVSSFq44SYDX6V1IHRnbCP-P7NEQ7WwgaQzUGdQMCyCb9gstGl7BSxYh7XytdEz2QgmCw2b3Vyxhdd7NNxjnYLZ6kmcQzOIUVG_SkdmH9sm3dSy4-01uhDnwi3bXxI6AyCt0eL5LOGg0ms3rOCeG1NAmiC2NzsALbiNREHPLK5Iaa4k1YMNOpfHg";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NjAwOTUsImlhdCI6MTcwODk1OTc5NSwianRpIjoiZWIzMWVmNjMtZjUzZC00MjY5LWE1YWYtODQ5ZWYwYTIxNGZkIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI3Mzg0NDk5Ni0yYjZiLTRmZjAtYTI1Ny04YThiOTE1N2UzOWYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjczODQ0OTk2LTJiNmItNGZmMC1hMjU3LThhOGI5MTU3ZTM5ZiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.csqBHDFFspNOebRlITytfbGDeTsHylrMfYzchbazQ2EX9INS4JFCk15yyx1ZSAxvLV7bir9cOvvaOcn2ny1tkCBsc5VWYBXsxmdw_gZ3MHaXWeURUFSw8f_R_mz_6X-JOLMAebqIdw2GKMayO0BJxt509YKn9E3JycuDg5UcjxfB8bmNCORgPFvEBy8qBFbgbJnLqzZiKxCg0tKXTt3o7enHJ-_RKMrZ1XLDaFbApr_0S6DoXZbPkOL8GJQX8GduaDntzYwrw2fGqQvd9-XtJLg_bNHgwbunotRlg2mQx6D2E5fzILCHby_oJ90uGc4bAKixInwzuBkmRnJULPbQkw";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -37,7 +37,6 @@ function App() {
   const [title, setTitle] = useState("Hello");
   const [showSubscribe, setShowSubscribe] = useState(true);
   const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
-  const [subscriptionData, setSubscriptionData] = useState(null);
 
   const onShowSubscribe = () => setShowSubscribe(true);
 
@@ -80,7 +79,6 @@ function App() {
 
       toast.success("Subscription acquired");
       console.log(subscription.toJSON());
-      setSubscriptionData(subscription.toJSON());
 
       // await axios.post(BACKEND_URL + "/notifications/subscribe", {
       //   userId: "1",
@@ -102,6 +100,8 @@ function App() {
       toast.success("Subscribe success");
     } catch (e) {
       if (e.errorCode === "ExistingSubscription") {
+        toast.success("Subscription already existing");
+
         const registration = await navigator.serviceWorker.ready;
         const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
 
@@ -115,8 +115,6 @@ function App() {
           existingSubscription.toJSON(),
           existingSubscription.subscriptionId
         );
-
-        setSubscriptionData(existingSubscription.toJSON());
 
         await axios.post(
           BACKEND_URL + "/users/notifications/subscribe",
@@ -154,7 +152,6 @@ function App() {
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
-              {subscriptionData}
             </div>
           </div>
         </div>
