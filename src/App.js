@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTgxOTQsImlhdCI6MTcwODk1Nzg5NCwianRpIjoiNTVmZjk1OGQtYTQ5My00NGE3LWExODMtY2Y0MzViZDJlYzViIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIwM2VhMDc3Zi02YTcxLTQ0NzktYjFkMS00ODRlZTE0YjlhN2UiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjAzZWEwNzdmLTZhNzEtNDQ3OS1iMWQxLTQ4NGVlMTRiOWE3ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.pmuUQB0sv1wRETBhN-ecCKxkKAs1mERNJAXRFErYeHqVGc0ZHLDX0APa2aUhDPEWLHJpmL4UIGm-U7ZWkWoul3JvjPSRbpAfglpFwjuDnNbAe3PEUlNDSQSUIA7Xs4Hk3JLqVCq9Vpf5QEXxoKvlJlCh_C8Ktw5X0vnk_iivMR2owZB5QqEYXYIZulnpmWaLeo7Hgr86rLd1942Zt68uQb8OL83GNYjC-6MT_oJR7k85gjeRf5ApPf4qtKIytzUvCAhh5kL3J4wjL6jpO41lMa3HwynmSHpWG_4VC31V0xqcldEJb2M6pC_um5_LF8IRYQGZdQBE4uFOVKaNTFlkrQ";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NTg0MzcsImlhdCI6MTcwODk1ODEzNywianRpIjoiZjIwNTZmNjktMTk1Ni00YmVlLWE0MTAtZDM5YjFkNmU0ODU2IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIxNzY2ZjY2MS0yZDEwLTRkNzMtYTMyNy1jMDRkMjBiYjNhMDAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjE3NjZmNjYxLTJkMTAtNGQ3My1hMzI3LWMwNGQyMGJiM2EwMCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.iEWCey0yAxqI_oFKWLYpEEJbNq7RvdrP9oQ0uGmyBK30wO3tAyb3KXm3Gukh3YZM0H7eKc5l7H8ndqHZEXz98RLb21QN8KYWUW3kEJu6RXt1lwFgo7D7EmQ9HYTLaoULJnexMDvZ68CCFD5qtDY1vzBrDIlu3_j-VQgTj-dfPWINQLbtg_5L_0bkapkpquwaSRv3aEP1WjFTLCXO3FA6khablvOA9luymfbKaszydmHTjb77XeLIenGpV-z9B3aED-S4Gxp1R2wg5EuWCjlJrFSOdckXZRRLFd21vUGz7xHE9NOaLB5OmcKj2-_118WNcEY9MDZjMXC2Qfxy_oz-fw";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -172,7 +172,14 @@ function App() {
           </div>
         </div>
         {!showSubscribe && (
-          <div className="send">
+          <div
+            className="send"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <div className="title">Notification</div>
             <TextInput
               id="idSubscribe"
