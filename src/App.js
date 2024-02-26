@@ -76,6 +76,7 @@ function App() {
   const onSubscribe = async () => {
     setLoadingSubscribe(true);
     try {
+      console.log("testing");
       const subscription = await getSubscription();
 
       toast.success("Subscription acquired");
@@ -147,7 +148,7 @@ function App() {
       <main>
         <div>
           <div className="message">
-            <div className="title">Use as PWA 3</div>
+            <div className="title">Use as PWA 4</div>
             <div>
               You need to install the site on your home screen. Subscribe to
               push notifications. Then you can test sending notifications.
