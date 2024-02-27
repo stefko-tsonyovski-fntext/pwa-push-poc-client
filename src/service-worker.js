@@ -74,6 +74,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener("push", function (event) {
   // const data = event.data.json();
   // console.log(event.data, event.data.json());
+  console.log("push event");
   const options = {
     body: "data.message",
     icon: "favicon.ico",

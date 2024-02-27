@@ -67,6 +67,7 @@ function App() {
       await axios.post(BACKEND_URL + "/notifications/send", sendPayload);
 
       toast.success("Push success");
+      console.log("Push success");
     } catch (e) {
       toast.error("Details console");
     } finally {
