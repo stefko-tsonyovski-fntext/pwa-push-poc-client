@@ -9,11 +9,11 @@ import { useSubscribe } from "react-pwa-push-notifications";
 export const PUBLIC_KEY =
   "BDZJSiMXSJUhryPkjFh_H84ZeEjVNfq5STCXVDEW4bpXye1mybGCjufRFIVmMxJN1wHOGUunGyBra0qvSa0fGJ8";
 
-// export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
-export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
+export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
+// export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDg5NjQyNDMsImlhdCI6MTcwODk2Mzk0MywianRpIjoiNzkxYTRkOGUtOGQ5OS00OWNmLWI5MmYtYjNlNmRmMjlkOWJlIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzJmZjg0ZjQtNzE4Yi00NTdkLWE0NjMtNTAzZDRlZGEzOGJlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIyOGRjNzI1MS01M2IyLTRjM2QtODgwYS01MzRhOWM2MGExMDkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjI4ZGM3MjUxLTUzYjItNGMzZC04ODBhLTUzNGE5YzYwYTEwOSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHM4QGFidi5iZyIsImVtYWlsIjoiYXNzZXRzOEBhYnYuYmcifQ.TdQ3BcJ5sXXhf8Mtk4538dwf_oD8GjAqAh2ud58dpXoI0rKCUDjvmzKoo2_SaIesBc5QSgXRvnRH9Jmdxk-L6P-Rmg6CzfBhR3OG2WoumxXuQriLyh6uS9urVoe8VJb7GLexu_RawE3W4VyT1IbmAd97zsL_jPrB4bs54xea9ZiI5cDPFOEWG5Tjbq9OL5bUjtwSZGD3w1mlTNIlGFBQBVBeJK0Y6o-G8DGWNbGx4bhQWIHrGTfPCRGXsVaYlwhmTb2MTc8Gf4jGLendtwzg0AeyX7yvLGkG7HRCkMoJ8TVjCy4ICeZLDybonK_1jXUD0V5n_zVtcBtqUwGO3B-5yg";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDkwMzg5MTYsImlhdCI6MTcwOTAzODYxNiwianRpIjoiMjJjOTc5MWQtZWVkNC00NjgyLThhZTQtZDk2OTRiOGE4ZGE0IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTNmMzM0MWItZGI0MC00NDY2LWIxYWYtODAwZjdlNTY5NGVhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI4NzQ3NTczOS1kZGIyLTQ4ZjktOWU0Yi0yZDE2ZDk3ZTMyNTEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6Ijg3NDc1NzM5LWRkYjItNDhmOS05ZTRiLTJkMTZkOTdlMzI1MSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMxMEBhYnYuYmciLCJlbWFpbCI6ImFzc2V0czEwQGFidi5iZyJ9.lbHTjfENjB3sPZwmQDRI7m8piwI0Rt0deoY2xEQ4NgnkI1jv_GzVyQPYlHAZCYHmDdAk8ZHg0XYAXFBNlx7YTGNy7a9r70KvQAgDfez28rth4hw-0e_wBq1lA-19mq_iWRbcXnZ5La8Y-HlBq-c-in-s1CekL1k29Lc1rf5KOFCphNqLf_e4nm7Scua6I6loafOCfgm_wg22WXAgQtn99R4Y38Y5WBVqnP8cqOd5kAi2pGKTEsDHlHQqJCERBeHcsTq4WhZsaQdDeJQz0yzfdo8EH7ToQkWxfeAB7BWqG4BVo5eMp2OT9LtiLAf-C0rVW3UmIyRPwf9EdOZmovgaGA";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -51,20 +51,20 @@ function App() {
 
     try {
       const sendPayload = {
-        // message: JSON.stringify({
-        //   title: "Miroslab",
-        //   message: "Miroslabbbbbb",
-        // }),
-        userId: "1",
-        title: "Miroslab",
-        message: "Miroslabbbbbb",
+        message: JSON.stringify({
+          title: "Miroslab",
+          message: "Miroslabbbbbb",
+        }),
+        // userId: "1",
+        // title: "Miroslab",
+        // message: "Miroslabbbbbb",
       };
 
-      // await axios.post(BACKEND_URL + "/users/notifications/send", sendPayload, {
-      //   headers: { Authorization: `Bearer ${accessToken}` },
-      // });
+      await axios.post(BACKEND_URL + "/users/notifications/send", sendPayload, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
 
-      await axios.post(BACKEND_URL + "/notifications/send", sendPayload);
+      // await axios.post(BACKEND_URL + "/notifications/send", sendPayload);
 
       toast.success("Push success");
     } catch (e) {
@@ -82,22 +82,22 @@ function App() {
       toast.success("Subscription acquired");
       console.log(subscription.toJSON());
 
-      await axios.post(BACKEND_URL + "/notifications/subscribe", {
-        userId: "1",
-        endpoint: subscription.endpoint,
-        p256dh: subscription.toJSON().keys.p256dh,
-        auth: subscription.toJSON().keys.auth,
-      });
+      // await axios.post(BACKEND_URL + "/notifications/subscribe", {
+      //   userId: "1",
+      //   endpoint: subscription.endpoint,
+      //   p256dh: subscription.toJSON().keys.p256dh,
+      //   auth: subscription.toJSON().keys.auth,
+      // });
 
-      // await axios.post(
-      //   BACKEND_URL + "/users/notifications/subscribe",
-      //   {
-      //     endpoint: subscription.endpoint,
-      //     p256dh: subscription.toJSON().keys.p256dh,
-      //     auth: subscription.toJSON().keys.auth,
-      //   },
-      //   { headers: { Authorization: `Bearer ${accessToken}` } }
-      // );
+      await axios.post(
+        BACKEND_URL + "/users/notifications/subscribe",
+        {
+          endpoint: subscription.endpoint,
+          p256dh: subscription.toJSON().keys.p256dh,
+          auth: subscription.toJSON().keys.auth,
+        },
+        { headers: { Authorization: `Bearer ${accessToken}` } }
+      );
 
       toast.success("Subscribe success");
     } catch (e) {
@@ -120,15 +120,15 @@ function App() {
         );
 
         setSubscriptionData(existingSubscription.toJSON());
-        // await axios.post(
-        //   BACKEND_URL + "/users/notifications/subscribe",
-        //   {
-        //     endpoint: existingSubscription.endpoint,
-        //     p256dh: existingSubscription.toJSON().keys.p256dh,
-        //     auth: existingSubscription.toJSON().keys.auth,
-        //   },
-        //   { headers: { Authorization: `Bearer ${accessToken}` } }
-        // ); // on phone breaking here
+        await axios.post(
+          BACKEND_URL + "/users/notifications/subscribe",
+          {
+            endpoint: existingSubscription.endpoint,
+            p256dh: existingSubscription.toJSON().keys.p256dh,
+            auth: existingSubscription.toJSON().keys.auth,
+          },
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
 
         toast.success("Existing subscription");
       } else {
