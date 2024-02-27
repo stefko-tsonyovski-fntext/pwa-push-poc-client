@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
@@ -13,7 +13,7 @@ export const BACKEND_URL = "https://api.dev.e-fact.app/api/v1";
 // export const BACKEND_URL = "https://pwa-push-server-zrn3.onrender.com/api/v1";
 
 export const accessToken =
-  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDkwNDk5NzQsImlhdCI6MTcwOTA0OTY3NCwianRpIjoiNzFhODk2NzQtMzBjMC00OWFjLWFkODQtMjlhMDJiMzE1MzY1IiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTNmMzM0MWItZGI0MC00NDY2LWIxYWYtODAwZjdlNTY5NGVhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiIzMWYxYjAzMi02NGNjLTQ5ZjEtODg5YS03MDA4MjcwOThhMmIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjMxZjFiMDMyLTY0Y2MtNDlmMS04ODlhLTcwMDgyNzA5OGEyYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMxMEBhYnYuYmciLCJlbWFpbCI6ImFzc2V0czEwQGFidi5iZyJ9.0t8Eg5RwijyeYVQqiYw33pDwmo1ER44aun2JtMY7fDgB5MYoXzrweWMiTKhOINE_05d7Sv1HfZKQ_OF6Kkrdy4ZmnUIwl1bk8-KZtyRxKEoqRTxCoYJyvPDe8zQnrQJ7Mk7dsJa9XLOcYekBUSYcZ1wtOjshgUSVNGnd0f0Ib9a0VYyQW0kFtVLMKZ3rBgt8G4WQ7sMo0rSLIDwsfqDvXnIy-9fmJOQ_sP4yesmBviNkIYXgwOauK2LLbc1tpSI3-U5B3p1RRKgd8NSfj3lcvKKjPKsOp5xkjO58c8N98jUHFcCLY7HVYQwqOsonrA8bldzjDt-jC7O7_PmI1xLrJA";
+  "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfWDlqTkF2bU5WVUNUWVVaNlBTQWZfX21UdDdQcEJHWk85Z1pCT1ZDc1pNIn0.eyJleHAiOjE3MDkwNTEyMjQsImlhdCI6MTcwOTA1MDkyNCwianRpIjoiMjRhOTE3NDQtM2NmNS00ZmYwLTgyMjctNGZhMjBjMzcxMTJkIiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50LmRldi5lLWZhY3QuYXBwL3JlYWxtcy9waWNhcmQiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTNmMzM0MWItZGI0MC00NDY2LWIxYWYtODAwZjdlNTY5NGVhIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViLWFwcCIsInNlc3Npb25fc3RhdGUiOiI2MTI4OGM1ZS1hZjE0LTQ3NzctOWViYi0zMTdlNzY4ZjQzNDAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vYXBwc3J2LXdldS1mbnQtZGV2LWZlLmF6dXJld2Vic2l0ZXMubmV0IiwiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1waWNhcmQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjYxMjg4YzVlLWFmMTQtNDc3Ny05ZWJiLTMxN2U3NjhmNDM0MCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhc3NldHMxMEBhYnYuYmciLCJlbWFpbCI6ImFzc2V0czEwQGFidi5iZyJ9.Ku5FWmsdLuWSdVVKekH_KtPCXbEicv3_6sv3BnZ8gAnGJt_PGL9agGzR6ZWATtbzyDedCmmzAEhAad7UMLKQw4YJYho7gtCTccAlgpCqLpayo0jfgAqxa_cqC2W8iquClwYe9UPU1SisBjmktNdJeEmJ3XijdLPJyJan7cQc1_rgyXmYwC4yWKEsI14IWez97M5gD0g2uFYnxjL_heMFrAoV2ekvRgXftyQWAdEgHA5CG9s_BdK66B_PG4MWUbqwDpZ0-xqT1g2iJXvnQGMrqUR_7kWnfb3T8PQSR7aO6zAIonzNh6bxo-b3VA5VEQITt-0Zuf2Kavwtye0PI0P8Mw";
 
 export const urlBase64ToUint8Array = (base64String) => {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -100,6 +100,7 @@ function App() {
       );
 
       toast.success("Subscribe success");
+      setShowSubscribe(false);
     } catch (e) {
       setError(e);
       if (e.errorCode === "ExistingSubscription") {
@@ -131,6 +132,7 @@ function App() {
         );
 
         toast.success("Existing subscription");
+        setShowSubscribe(false);
       } else {
         console.warn(e);
         toast.error("Something went wrong");
@@ -140,12 +142,42 @@ function App() {
     }
   };
 
+  const onCheckSubscriptionExists = useCallback(async () => {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+      toast.error("Service worker and push manager not supported");
+      return;
+    }
+
+    const registration = await navigator.serviceWorker.ready;
+
+    if (!registration.pushManager) {
+      toast.error("Push manager unavailable");
+      return;
+    }
+
+    toast.success("Push manager found");
+
+    const existingSubscription =
+      await registration.pushManager.getSubscription();
+
+    if (!existingSubscription) {
+      toast.error("Subscription exists");
+      setShowSubscribe(true);
+    } else {
+      setShowSubscribe(false);
+    }
+  }, []);
+
   const onChange = useCallback(
     (setState) => (e) => {
       setState(e.target.value);
     },
     []
   );
+
+  useEffect(() => {
+    onCheckSubscriptionExists();
+  }, [onCheckSubscriptionExists]);
 
   return (
     <div className="App">
